@@ -1,0 +1,16 @@
+# Ignore the node modules
+node_modules/
+public/lib
+.vscode/
+
+*.~*
+*.BACKUP.*
+*_BACKUP_*
+*.BASE.*
+*_BASE_*
+*.LOCAL.*
+*_LOCAL_*
+*.REMOTE.*
+*_REMOTE_*
+*.orig
+*.log

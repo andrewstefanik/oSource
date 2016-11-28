@@ -1,0 +1,25 @@
+{
+  "name": "osource",
+  "description": "Open Source Tool",
+  "main": "app.js",
+  "authors": [
+    "Michael Miller",
+    "Andrew Stefanik"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.9",
+    "bootstrap": "^3.3.7",
+    "normalize-css": "^5.0.0",
+    "less": "^2.7.1",
+    "jquery": "^3.1.1"
+  }
+}
