@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,4 +13,25 @@
     <script src="\public\lib\angular\angular.min.js"></script>
     <script src="\public\lib\angular-ui-router\release\angular-ui-router.min.js"></script>
     </body>
+=======
+<html ng-app="oSource">
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <title>oSource</title>
+</head>
+<body>
+    <ng-include src="js/ngApp/app/header.html"></ng-include>
+    <ui-view></ui-view>
+
+    <script src="/lib/angular/angular.min.js"></script>
+    <script src="/lib/satellizer/dist/satellizer.min.js"></script>
+    <script src="/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/lib/angular-resource/angular-resource.min.js"></script>
+
+
+    <script src="/js/ngApp/app/App.js"></script>
+    <script src="/js/ngApp/user/login/LoginController.js"></script>
+</body>
+>>>>>>> a2431721f5e5eab7ef1017634ae4ad3b57943021
 </html>
