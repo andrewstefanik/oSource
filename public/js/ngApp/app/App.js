@@ -22,6 +22,11 @@ angular.module('oSource', ['ui.router', 'satellizer', 'ngResource'])
             templateUrl: '/js/ngApp/home/home.html',
             controller: 'HomeController'
         })
+        .state('Add', {
+            url: '/add',
+            templateUrl: '/js/ngApp/add/add.html',
+            controller: 'AddController'
+        })
         $urlRouterProvider.otherwise('/');
         $locationProvider.html5Mode(true);
     }]

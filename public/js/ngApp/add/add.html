@@ -1,243 +1,200 @@
-<!-- Inline CSS based on choices in "Settings" tab -->
-<style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: #ffffff !important;} .asteriskField{color: red;}</style>
+<style>
+.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black
+}
+.bootstrap-iso form button, .bootstrap-iso form button:hover {
+    color: #ffffff !important;
+}
+.asteriskField{
+    color: red;
+}
+</style>
 
-<!-- HTML Form (wrapped in a .bootstrap-iso div) -->
 <div class="bootstrap-iso">
- <div class="container-fluid">
-  <div class="row">
-   <div class="col-md-6 col-sm-6 col-xs-12">
-    <form method="post">
-     <div class="form-group form-group-sm">
-      <label class="control-label requiredField" for="text">
-       Repository Name
-       <span class="asteriskField">
-        *
-       </span>
-      </label>
-      <input class="form-control" id="text" name="text" type="text"/>
-      <span class="help-block" id="hint_text">
-       Place the name of your repo here
-      </span>
-     </div>
-     <div class="form-group form-group-sm">
-      <label class="control-label requiredField" for="url">
-       Repository Link
-       <span class="asteriskField">
-        *
-       </span>
-      </label>
-      <input class="form-control" id="url" name="url" type="text"/>
-      <span class="help-block" id="hint_url">
-       Link your repo here
-      </span>
-     </div>
-     <div class="form-group form-group-sm">
-      <label class="control-label requiredField" for="textarea">
-       Description
-       <span class="asteriskField">
-        *
-       </span>
-      </label>
-      <textarea class="form-control" cols="40" id="textarea" name="textarea" rows="10"></textarea>
-      <span class="help-block" id="hint_textarea">
-       Give a brief description of your project and what type of assistance you're looking for.
-      </span>
-     </div>
-     <div class="form-group form-group-sm">
-      <label class="control-label requiredField">
-       Languages
-       <span class="asteriskField">
-        *
-       </span>
-      </label>
-      <div class=" ">
-       <div class="checkbox">
-        <label class="checkbox">
-         <input name="checkbox" type="checkbox" value="JavaScript"/>
-         JavaScript
-        </label>
-       </div>
-       <div class="checkbox">
-        <label class="checkbox">
-         <input name="checkbox" type="checkbox" value="Java"/>
-         Java
-        </label>
-       </div>
-       <div class="checkbox">
-        <label class="checkbox">
-         <input name="checkbox" type="checkbox" value="Python"/>
-         Python
-        </label>
-       </div>
-       <div class="checkbox">
-        <label class="checkbox">
-         <input name="checkbox" type="checkbox" value="Ruby"/>
-         Ruby
-        </label>
-       </div>
-       <div class="checkbox">
-        <label class="checkbox">
-         <input name="checkbox" type="checkbox" value="PHP"/>
-         PHP
-        </label>
-       </div>
-       <div class="checkbox">
-        <label class="checkbox">
-         <input name="checkbox" type="checkbox" value="C#"/>
-         C#
-        </label>
-       </div>
-       <div class="checkbox">
-        <label class="checkbox">
-         <input name="checkbox" type="checkbox" value="C++"/>
-         C++
-        </label>
-       </div>
-       <div class="checkbox">
-        <label class="checkbox">
-         <input name="checkbox" type="checkbox" value="Go"/>
-         Go
-        </label>
-       </div>
-       <div class="checkbox">
-        <label class="checkbox">
-         <input name="checkbox" type="checkbox" value="HTML"/>
-         HTML
-        </label>
-       </div>
-       <div class="checkbox">
-        <label class="checkbox">
-         <input name="checkbox" type="checkbox" value="CSS"/>
-         CSS
-        </label>
-       </div>
-       <div class="checkbox">
-        <label class="checkbox">
-         <input name="checkbox" type="checkbox" value="Bootstrap"/>
-         Bootstrap
-        </label>
-       </div>
-       <div class="checkbox">
-        <label class="checkbox">
-         <input name="checkbox" type="checkbox" value="Objective-C"/>
-         Objective-C
-        </label>
-       </div>
-       <div class="checkbox">
-        <label class="checkbox">
-         <input name="checkbox" type="checkbox" value="Swift"/>
-         Swift
-        </label>
-       </div>
-       <div class="checkbox">
-        <label class="checkbox">
-         <input name="checkbox" type="checkbox" value="Other*"/>
-         Other*
-        </label>
-       </div>
-       <span class="help-block" id="hint_checkbox">
-        Select which languages your project uses.
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <form method="post">
+                    <div class="form-group form-group-sm">
+                        <label class="control-label requiredField" for="text">
+                            Repository Name
+                            <span class="asteriskField">
+                                *
+                            </span>
+                        </label>
+                        <input class="form-control" id="text" name="text" type="text"/>
+                        <span class="help-block" id="hint_text">
+                            Place the name of your repo here
+                        </span>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label class="control-label requiredField" for="url">
+                            Repository Link
+                            <span class="asteriskField">
+                                *
+                            </span>
+                        </label>
+                        <input class="form-control" id="url" name="url" type="text"/>
+                        <span class="help-block" id="hint_url">
+                            Link your repo here
+                        </span>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label class="control-label requiredField" for="textarea">
+                            Description
+                            <span class="asteriskField">
+                                *
+                            </span>
+                        </label>
+                        <textarea class="form-control" cols="30" id="textarea" name="textarea" rows="8"></textarea>
+                        <span class="help-block" id="hint_textarea">
+                            Give a brief description of your project and what type of assistance you're looking for.
+                        </span>
+                    </div>
+                    <div class="form-group" id="div_checkbox">
+                        <label class="control-label requiredField" for="checkbox">
+                            Languages
+                            <span class="asteriskField">
+                                *
+                            </span>
+                        </label>
+                        <div class=" ">
+                            <label class="checkbox-inline">
+                                <input name="checkbox" type="checkbox" value="JavaScript"/>
+                                JavaScript
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="checkbox" type="checkbox" value="Java"/>
+                                Java
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="checkbox" type="checkbox" value="Python"/>
+                                Python
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="checkbox" type="checkbox" value="Ruby"/>
+                                Ruby
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="checkbox" type="checkbox" value="PHP"/>
+                                PHP
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="checkbox" type="checkbox" value="C#"/>
+                                C#
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="checkbox" type="checkbox" value="C++"/>
+                                C++
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="checkbox" type="checkbox" value="Go"/>
+                                Go
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="checkbox" type="checkbox" value="HTML"/>
+                                HTML
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="checkbox" type="checkbox" value="CSS"/>
+                                CSS
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="checkbox" type="checkbox" value="Bootstrap"/>
+                                Bootstrap
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="checkbox" type="checkbox" value="Objective-C"/>
+                                Objective-C
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="checkbox" type="checkbox" value="Swift"/>
+                                Swift
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="checkbox" type="checkbox" value="Other*"/>
+                                Other*
+                            </label>
+                            <span class="help-block" id="hint_checkbox">
+                                Select which languages your project uses.
 
-*If other please list languages in description.
-       </span>
-      </div>
-     </div>
-     <div class="form-group form-group-sm">
-      <label class="control-label requiredField">
-       Frameworks
-       <span class="asteriskField">
-        *
-       </span>
-      </label>
-      <div class=" ">
-       <div class="checkbox">
-        <label class="checkbox">
-         <input name="checkbox1" type="checkbox" value="ASP.NET"/>
-         ASP.NET
-        </label>
-       </div>
-       <div class="checkbox">
-        <label class="checkbox">
-         <input name="checkbox1" type="checkbox" value="AngularJS"/>
-         AngularJS
-        </label>
-       </div>
-       <div class="checkbox">
-        <label class="checkbox">
-         <input name="checkbox1" type="checkbox" value="Ruby on Rails"/>
-         Ruby on Rails
-        </label>
-       </div>
-       <div class="checkbox">
-        <label class="checkbox">
-         <input name="checkbox1" type="checkbox" value="Django"/>
-         Django
-        </label>
-       </div>
-       <div class="checkbox">
-        <label class="checkbox">
-         <input name="checkbox1" type="checkbox" value="Laravel"/>
-         Laravel
-        </label>
-       </div>
-       <div class="checkbox">
-        <label class="checkbox">
-         <input name="checkbox1" type="checkbox" value="Meteor"/>
-         Meteor
-        </label>
-       </div>
-       <div class="checkbox">
-        <label class="checkbox">
-         <input name="checkbox1" type="checkbox" value="Spring"/>
-         Spring
-        </label>
-       </div>
-       <div class="checkbox">
-        <label class="checkbox">
-         <input name="checkbox1" type="checkbox" value="Express"/>
-         Express
-        </label>
-       </div>
-       <div class="checkbox">
-        <label class="checkbox">
-         <input name="checkbox1" type="checkbox" value="CodeIgniter"/>
-         CodeIgniter
-        </label>
-       </div>
-       <div class="checkbox">
-        <label class="checkbox">
-         <input name="checkbox1" type="checkbox" value="Symfony"/>
-         Symfony
-        </label>
-       </div>
-       <div class="checkbox">
-        <label class="checkbox">
-         <input name="checkbox1" type="checkbox" value="Ember.JS"/>
-         Ember.JS
-        </label>
-       </div>
-       <div class="checkbox">
-        <label class="checkbox">
-         <input name="checkbox1" type="checkbox" value="Other*"/>
-         Other*
-        </label>
-       </div>
-       <span class="help-block" id="hint_checkbox1">
-        Select which frameworks your project uses.
+                                *If other please list languages in description.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group" id="div_checkbox1">
+                        <label class="control-label requiredField" for="checkbox1">
+                            Frameworks
+                            <span class="asteriskField">
+                                *
+                            </span>
+                        </label>
+                        <div class=" ">
+                            <label class="checkbox-inline">
+                                <input name="checkbox1" type="checkbox" value="ASP.NET"/>
+                                ASP.NET
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="checkbox1" type="checkbox" value="AngularJS"/>
+                                AngularJS
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="checkbox1" type="checkbox" value="Ruby on Rails"/>
+                                Ruby on Rails
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="checkbox1" type="checkbox" value="Django"/>
+                                Django
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="checkbox1" type="checkbox" value="Laravel"/>
+                                Laravel
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="checkbox1" type="checkbox" value="Meteor"/>
+                                Meteor
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="checkbox1" type="checkbox" value="Spring"/>
+                                Spring
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="checkbox1" type="checkbox" value="Express"/>
+                                Express
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="checkbox1" type="checkbox" value="CodeIgniter"/>
+                                CodeIgniter
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="checkbox1" type="checkbox" value="Symfony"/>
+                                Symfony
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="checkbox1" type="checkbox" value="Ember.JS"/>
+                                Ember.JS
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="checkbox1" type="checkbox" value="Other*"/>
+                                Other*
+                            </label>
+                            <span class="help-block" id="hint_checkbox1">
+                                Select which frameworks your project uses.
 
-*If other please list frameworks in description.
-       </span>
-      </div>
-     </div>
-     <div class="form-group">
-      <div>
-       <button class="btn btn-primary btn-lg" name="submit" type="submit">
-        Submit
-       </button>
-      </div>
-     </div>
-    </form>
-   </div>
-  </div>
- </div>
+                                *If other please list frameworks in description.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <button class="btn btn-primary btn-md" name="submit" type="submit">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>

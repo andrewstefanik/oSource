@@ -47,11 +47,11 @@ var qs = require('querystring');
 var jwt = require('jwt-simple');
 var moment = require('moment');
 var request = require('request');
-var express = require('express');
 
-var app = express();
 
-var config = require('./config/satellizer');
+
+
+
 
 // Force HTTPS on Heroku
 if (app.get('env') === 'production') {
