@@ -14,8 +14,13 @@
     "bootstrap": "^3.3.7",
     "ejs": "^2.5.3",
     "express": "^4.14.0",
+    "jwt-simple": "^0.5.1",
+    "moment": "^2.17.0",
     "mongodb": "^2.2.11",
-    "path": "^0.12.7"
+    "mongoose": "^4.7.0",
+    "path": "^0.12.7",
+    "querystring": "^0.2.0",
+    "request": "^2.79.0"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
