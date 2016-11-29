@@ -1,3 +1,4 @@
+var mongoose = require('mongoose');
 var userSchema = new mongoose.Schema({
   displayName: String,
   picture: String,
@@ -5,3 +6,5 @@ var userSchema = new mongoose.Schema({
   github: String,
   linkedin: String
 });
+
+module.exports = mongoose.model('User', userSchema);
