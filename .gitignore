@@ -2,6 +2,7 @@
 node_modules/
 public/lib
 .vscode/
+.typings
 
 *.~*
 *.BACKUP.*
