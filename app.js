@@ -5,6 +5,10 @@ var path = require("path");
 var app = express();
 var mongoose = require('mongoose');
 var request = require('request');
+var qs = require('querystring');
+var jwt = require('jwt-simple');
+var moment = require('moment');
+var User = require('./models/user');
 
 // Set up Database
 var db = require('./config/database');
@@ -42,13 +46,6 @@ app.get('/', function (req, res, next) {
 });
 
 
-
-var qs = require('querystring');
-var jwt = require('jwt-simple');
-var moment = require('moment');
-
-var config = require('./config/satellizer');
-
 // Force HTTPS on Heroku
 if (app.get('env') === 'production') {
   app.use(function(req, res, next) {
@@ -57,7 +54,8 @@ if (app.get('env') === 'production') {
   });
 }
 
-
+//============= establish connection with database =============//
+mongoose.connect(config.MONGO_URI);
 
 //================ Login Required ================//
 

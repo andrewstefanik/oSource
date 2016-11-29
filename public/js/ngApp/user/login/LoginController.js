@@ -1,12 +1,13 @@
 angular.module('oSource')
-.controller('LoginController', ['$scope', '$auth', function($scope, $auth) {
+.controller('LoginController', ['$scope', '$auth', '$state', function($scope, $auth, $state) {
 
     $scope.authenticate = function(provider) {
         $auth.authenticate(provider).then(function(response) {
-            response.redirect('/')
+            console.log(response);
+            $state.go('Home');
         }).catch(function(error) {
-            throw error;
             console.log(error);
+            throw error;
         })
     };
 }]);
