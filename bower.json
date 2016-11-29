@@ -22,12 +22,8 @@
     "normalize-css": "^5.0.0",
     "less": "^2.7.1",
     "jquery": "^3.1.1",
-<<<<<<< HEAD
-    "angular-ui-router": "^0.3.2"
-=======
     "satellizer": "^0.15.5",
     "angular-ui-router": "^0.3.2",
     "angular-resource": "^1.5.9"
->>>>>>> a2431721f5e5eab7ef1017634ae4ad3b57943021
   }
 }
