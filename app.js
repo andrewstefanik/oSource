@@ -4,6 +4,7 @@ var bodyParser = require("body-parser");
 var path = require("path");
 var app = express();
 var mongoose = require('mongoose');
+var request = require('request');
 
 // Set up Database
 var db = require('./config/database');
@@ -28,7 +29,7 @@ require('./routes/LoginRoute');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// app.use('./routes/LoginRoute');
+//app.use('./routes/LoginRoute');
 
 // Start Application
 app.listen(port);
@@ -329,4 +330,4 @@ app.post('/auth/unlink', ensureAuthenticated, function(req, res) {
 });
 
 // Export App
-exports = module.exports = app;
+// exports = module.exports = app;
