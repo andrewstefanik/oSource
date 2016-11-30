@@ -1,4 +1,4 @@
-angular.module('oSource', ['ui.router', 'satellizer', 'ngResource'])
+angular.module('oSource', ['ui.router', 'satellizer', 'ngResource', 'toastr'])
 .config (['$stateProvider', '$urlRouterProvider', '$locationProvider', '$authProvider',
 function ($stateProvider, $urlRouterProvider, $locationProvider, $authProvider) {
 
@@ -48,6 +48,11 @@ function ($stateProvider, $urlRouterProvider, $locationProvider, $authProvider) 
         // resolve: {
         //     loginRequired: loginRequired
         // }
+    })
+    .state('Settings', {
+        url: '/settings',
+        templateUrl: '/js/ngApp/settings/setting.html',
+        controller: 'SettingsController'
     });
     $urlRouterProvider.otherwise('/');
     $locationProvider.html5Mode({

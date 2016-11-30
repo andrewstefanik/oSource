@@ -96,6 +96,29 @@ function createJWT(user) {
   return jwt.encode(payload, config.TOKEN_SECRET);
 }
 
+//============ GET /api/me ==================//
+
+app.get('/api/me', ensureAuthenticated, function(request, response) {
+  User.findById(request.user, function(error, user) {
+    res.send(user);
+  });
+});
+
+//============ PUT /api/me ===================//
+
+app.put('/api/me', ensureAuthenticated, function(req, res) {
+  User.findById(req.user, function(err, user) {
+    if (!user) {
+      return res.status(400).send({ message: 'User not found' });
+    }
+    user.displayName = req.body.displayName || user.displayName;
+    user.email = req.body.email || user.email;
+    user.save(function(err) {
+      res.status(200).end();
+    });
+  });
+});
+
 //============ Login With LinkedIn ==============//
 
 app.post('/auth/linkedin', function(req, res) {
