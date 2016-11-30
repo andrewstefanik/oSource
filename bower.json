@@ -4,7 +4,8 @@
   "main": "app.js",
   "authors": [
     "Michael Miller",
-    "Andrew Stefanik"
+    "Andrew Stefanik",
+    "Craig Rufener"
   ],
   "license": "MIT",
   "homepage": "",
@@ -23,6 +24,7 @@
     "jquery": "^3.1.1",
     "satellizer": "^0.15.5",
     "angular-ui-router": "^0.3.2",
-    "angular-resource": "^1.5.9"
+    "angular-resource": "^1.5.9",
+    "font-awesome": "fontawesome#^4.7.0"
   }
 }

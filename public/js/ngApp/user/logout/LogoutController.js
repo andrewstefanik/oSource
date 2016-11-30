@@ -1,9 +1,8 @@
-angular.module('oSource')
-  .controller('LogoutCtrl', function($location, $auth, toastr) {
+angular.module('oSource').controller('LogoutController', function($location, $auth) {
     if (!$auth.isAuthenticated()) { return; }
     $auth.logout()
-      .then(function() {
-        toastr.info('You have been logged out');
+    .then(function() {
+        console.log('You have been logged out');
         $location.path('/');
-      });
-  });
+    });
+});

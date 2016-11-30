@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html ng-app="oSource">
 <head>
-    <base href="/">
     <meta charset="utf-8">
     <title>oSource</title>
     <link rel="stylesheet" href="/lib/normalize-css/normalize.css" type="text/css">
+    <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
+    <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="/css/style.less" type="text/less">
     <script>
@@ -19,6 +23,7 @@
             rootpath: ":/a.com/"
         };
     </script>
+    <base href="/">
 </head>
 <body>
     <div ng-include="'js/ngApp/app/header.html'"></div>
@@ -31,8 +36,10 @@
 
 
     <script src="/js/ngApp/app/App.js"></script>
+    <script src="/js/ngApp/app/HeaderController.js"></script>
     <script src="/js/ngApp/user/login/LoginController.js"></script>
-    <script src="/js/ngApp/home/HomeController.js"></script>
+    <script src="/js/ngApp/profile/ProfileController.js"></script>
+    <script src="/js/ngApp/user/logout/LogoutController.js"></script>
 
 </body>
 </html>
