@@ -28,15 +28,21 @@ app.use(express.static(__dirname + '/public'));
 // require('./api/routes')(app);
 require('./routes/LoginRoute');
 
-
 // Parse Application
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//app.use('./routes/LoginRoute');
-
 // Start Application
 app.listen(port);
+
+app.get('/*', function (req, res, next) {
+    if (/.js|.html|.css|templates|js|scripts/.test(req.path) || req.xhr) {
+        return next({ status: 404, message: 'Not Found' });
+    }
+    else {
+        return res.render('index');
+    }
+});
 
 // Let user know which port
 console.log('Server running on port' + port);
@@ -44,7 +50,6 @@ console.log('Server running on port' + port);
 app.get('/', function (req, res, next) {
     res.render('index.ejs');
 });
-
 
 // Force HTTPS on Heroku
 if (app.get('env') === 'production') {
@@ -161,144 +166,144 @@ app.post('/auth/linkedin', function(req, res) {
 //======================== Login With BitBucket ====================//
 
 app.post('/auth/bitbucket', function(req, res) {
-  var accessTokenUrl = 'https://bitbucket.org/site/oauth2/access_token';
-  var userApiUrl = 'https://bitbucket.org/api/2.0/user';
-  var emailApiUrl = 'https://bitbucket.org/api/2.0/user/emails';
+    var accessTokenUrl = 'https://bitbucket.org/site/oauth2/access_token';
+    var userApiUrl = 'https://bitbucket.org/api/2.0/user';
+    var emailApiUrl = 'https://bitbucket.org/api/2.0/user/emails';
 
-  var headers = {
-    Authorization: 'Basic ' + new Buffer(req.body.clientId + ':' + config.BITBUCKET_SECRET).toString('base64')
-  };
-
-  var formData = {
-    code: req.body.code,
-    redirect_uri: req.body.redirectUri,
-    grant_type: 'authorization_code'
-  };
-
-  // Step 1. Exchange authorization code for access token.
-  request.post({ url: accessTokenUrl, form: formData, headers: headers, json: true }, function(err, response, body) {
-    if (body.error) {
-      return res.status(400).send({ message: body.error_description });
-    }
-
-    var params = {
-      access_token: body.access_token
+    var headers = {
+        Authorization: 'Basic ' + new Buffer(req.body.clientId + ':' + config.BITBUCKET_SECRET).toString('base64')
     };
 
-    // Step 2. Retrieve information about the current user.
-    request.get({ url: userApiUrl, qs: params, json: true }, function(err, response, profile) {
+    var formData = {
+        code: req.body.code,
+        redirect_uri: req.body.redirectUri,
+        grant_type: 'authorization_code'
+    };
 
-      // Step 2.5. Retrieve current user's email.
-      request.get({ url: emailApiUrl, qs: params, json: true }, function(err, response, emails) {
-        var email = emails.values[0].email;
-
-        // Step 3a. Link user accounts.
-        if (req.header('Authorization')) {
-          User.findOne({ bitbucket: profile.uuid }, function(err, existingUser) {
-            if (existingUser) {
-              return res.status(409).send({ message: 'There is already a Bitbucket account that belongs to you' });
-            }
-            var token = req.header('Authorization').split(' ')[1];
-            var payload = jwt.decode(token, config.TOKEN_SECRET);
-            User.findById(payload.sub, function(err, user) {
-              if (!user) {
-                return res.status(400).send({ message: 'User not found' });
-              }
-              user.bitbucket = profile.uuid;
-              user.email = user.email || email;
-              user.picture = user.picture || profile.links.avatar.href;
-              user.displayName = user.displayName || profile.display_name;
-              user.save(function() {
-                var token = createJWT(user);
-                res.send({ token: token });
-              });
-            });
-          });
-        } else {
-          // Step 3b. Create a new user account or return an existing one.
-          User.findOne({ bitbucket: profile.id }, function(err, existingUser) {
-            if (existingUser) {
-              var token = createJWT(existingUser);
-              return res.send({ token: token });
-            }
-            var user = new User();
-            user.bitbucket = profile.uuid;
-            user.email = email;
-            user.picture = profile.links.avatar.href;
-            user.displayName = profile.display_name;
-            user.save(function() {
-              var token = createJWT(user);
-              res.send({ token: token });
-            });
-          });
+    // Step 1. Exchange authorization code for access token.
+    request.post({ url: accessTokenUrl, form: formData, headers: headers, json: true }, function(err, response, body) {
+        if (body.error) {
+            return res.status(400).send({ message: body.error_description });
         }
-      });
+
+        var params = {
+            access_token: body.access_token
+        };
+
+        // Step 2. Retrieve information about the current user.
+        request.get({ url: userApiUrl, qs: params, json: true }, function(err, response, profile) {
+
+            // Step 2.5. Retrieve current user's email.
+            request.get({ url: emailApiUrl, qs: params, json: true }, function(err, response, emails) {
+                var email = emails.values[0].email;
+
+                // Step 3a. Link user accounts.
+                if (req.header('Authorization')) {
+                    User.findOne({ bitbucket: profile.uuid }, function(err, existingUser) {
+                        if (existingUser) {
+                            return res.status(409).send({ message: 'There is already a Bitbucket account that belongs to you' });
+                        }
+                        var token = req.header('Authorization').split(' ')[1];
+                        var payload = jwt.decode(token, config.TOKEN_SECRET);
+                        User.findById(payload.sub, function(err, user) {
+                            if (!user) {
+                                return res.status(400).send({ message: 'User not found' });
+                            }
+                            user.bitbucket = profile.uuid;
+                            user.email = user.email || email;
+                            user.picture = user.picture || profile.links.avatar.href;
+                            user.displayName = user.displayName || profile.display_name;
+                            user.save(function() {
+                                var token = createJWT(user);
+                                res.send({ token: token });
+                            });
+                        });
+                    });
+                } else {
+                    // Step 3b. Create a new user account or return an existing one.
+                    User.findOne({ bitbucket: profile.id }, function(err, existingUser) {
+                        if (existingUser) {
+                            var token = createJWT(existingUser);
+                            return res.send({ token: token });
+                        }
+                        var user = new User();
+                        user.bitbucket = profile.uuid;
+                        user.email = email;
+                        user.picture = profile.links.avatar.href;
+                        user.displayName = profile.display_name;
+                        user.save(function() {
+                            var token = createJWT(user);
+                            res.send({ token: token });
+                        });
+                    });
+                }
+            });
+        });
     });
-  });
 });
 
 //======================== Login With Github ==========================//
 
 app.post('/auth/github', function(req, res) {
-  var accessTokenUrl = 'https://github.com/login/oauth/access_token';
-  var userApiUrl = 'https://api.github.com/user';
-  var params = {
-    code: req.body.code,
-    client_id: req.body.clientId,
-    client_secret: config.GITHUB_SECRET,
-    redirect_uri: req.body.redirectUri
-  };
+    var accessTokenUrl = 'https://github.com/login/oauth/access_token';
+    var userApiUrl = 'https://api.github.com/user';
+    var params = {
+        code: req.body.code,
+        client_id: req.body.clientId,
+        client_secret: config.GITHUB_SECRET,
+        redirect_uri: req.body.redirectUri
+    };
 
-  // Step 1. Exchange authorization code for access token.
-  request.get({ url: accessTokenUrl, qs: params }, function(err, response, accessToken) {
-    accessToken = qs.parse(accessToken);
-    var headers = { 'User-Agent': 'Satellizer' };
+    // Step 1. Exchange authorization code for access token.
+    request.get({ url: accessTokenUrl, qs: params }, function(err, response, accessToken) {
+        accessToken = qs.parse(accessToken);
+        var headers = { 'User-Agent': 'Satellizer' };
 
-    // Step 2. Retrieve profile information about the current user.
-    request.get({ url: userApiUrl, qs: accessToken, headers: headers, json: true }, function(err, response, profile) {
+        // Step 2. Retrieve profile information about the current user.
+        request.get({ url: userApiUrl, qs: accessToken, headers: headers, json: true }, function(err, response, profile) {
 
-      // Step 3a. Link user accounts.
-      if (req.header('Authorization')) {
-        User.findOne({ github: profile.id }, function(err, existingUser) {
-          if (existingUser) {
-            return res.status(409).send({ message: 'There is already a GitHub account that belongs to you' });
-          }
-          var token = req.header('Authorization').split(' ')[1];
-          var payload = jwt.decode(token, config.TOKEN_SECRET);
-          User.findById(payload.sub, function(err, user) {
-            if (!user) {
-              return res.status(400).send({ message: 'User not found' });
+            // Step 3a. Link user accounts.
+            if (req.header('Authorization')) {
+                User.findOne({ github: profile.id }, function(err, existingUser) {
+                    if (existingUser) {
+                        return res.status(409).send({ message: 'There is already a GitHub account that belongs to you' });
+                    }
+                    var token = req.header('Authorization').split(' ')[1];
+                    var payload = jwt.decode(token, config.TOKEN_SECRET);
+                    User.findById(payload.sub, function(err, user) {
+                        if (!user) {
+                            return res.status(400).send({ message: 'User not found' });
+                        }
+                        user.github = profile.id;
+                        user.picture = user.picture || profile.avatar_url;
+                        user.displayName = user.displayName || profile.name;
+                        user.save(function() {
+                            var token = createJWT(user);
+                            res.send({ token: token });
+                        });
+                    });
+                });
+            } else {
+                // Step 3b. Create a new user account or return an existing one.
+                User.findOne({ github: profile.id }, function(err, existingUser) {
+                    if (existingUser) {
+                        var token = createJWT(existingUser);
+                        return res.send({ token: token });
+                    }
+                    var user = new User();
+                    user.github = profile.id;
+                    user.picture = profile.avatar_url;
+                    user.displayName = profile.name;
+                    user.email = profile.email;
+
+                    user.save(function() {
+                        var token = createJWT(user);
+                        res.send({ token: token });
+                    });
+                });
             }
-            user.github = profile.id;
-            user.picture = user.picture || profile.avatar_url;
-            user.displayName = user.displayName || profile.name;
-            user.save(function() {
-              var token = createJWT(user);
-              res.send({ token: token });
-            });
-          });
         });
-      } else {
-        // Step 3b. Create a new user account or return an existing one.
-        User.findOne({ github: profile.id }, function(err, existingUser) {
-          if (existingUser) {
-            var token = createJWT(existingUser);
-            return res.send({ token: token });
-          }
-          var user = new User();
-          user.github = profile.id;
-          user.picture = profile.avatar_url;
-          user.displayName = profile.name;
-          user.email = profile.email;
-
-          user.save(function() {
-            var token = createJWT(user);
-            res.send({ token: token });
-          });
-        });
-      }
     });
-  });
 });
 
 
