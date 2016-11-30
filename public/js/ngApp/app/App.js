@@ -27,6 +27,16 @@ angular.module('oSource', ['ui.router', 'satellizer', 'ngResource'])
             templateUrl: '/js/ngApp/add/add.html',
             controller: 'AddController'
         })
+        .state('Search', {
+            url: '/search',
+            templateUrl: '/js/ngApp/search/search.html',
+            controller: 'SearchController'
+        })
+        .state('Search.results', {
+            url: '/results',
+            templateUrl: '/js/ngApp/search/result.html',
+            controller: 'ResultController'
+        })
         $urlRouterProvider.otherwise('/');
         $locationProvider.html5Mode(true);
     }]

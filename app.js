@@ -34,7 +34,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //app.use('./routes/LoginRoute');
-
+// search route
+var search = require('./routes/searchRoute');
+app.use('/search', search);
 // Start Application
 app.listen(port);
 
