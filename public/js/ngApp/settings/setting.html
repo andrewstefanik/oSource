@@ -21,3 +21,35 @@
         </div>
     </div>
 </div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Accounts</div>
+    <div class="panel-body">
+      <legend><i class="ion-link"></i> Linked Accounts</legend>
+      <div class="btn-group-vertical">
+
+        <button class="btn btn-sm btn-danger" ng-if="user.linkedin" ng-click="unlink('linkedin')">
+          <i class="ion-social-linkedin"></i> Unlink LinkedIn Account
+        </button>
+        <button class="btn btn-sm btn-primary" ng-if="!user.linkedin" ng-click="link('linkedin')">
+          <i class="ion-social-linkedin"></i> Link LinkedIn Account
+        </button>
+
+        <button class="btn btn-sm btn-danger" ng-if="user.github" ng-click="unlink('github')">
+          <i class="ion-social-github"></i> Unlink GitHub Account
+        </button>
+        <button class="btn btn-sm btn-primary" ng-if="!user.github" ng-click="link('github')">
+          <i class="ion-social-github"></i> Link GitHub Account
+        </button>
+
+        <button class="btn btn-sm btn-danger" ng-if="user.bitbucket" ng-click="unlink('bitbucket')">
+          <i class="fa fa-bitbucket"></i> Unlink Bitbucket Account
+        </button>
+        <button class="btn btn-sm btn-primary" ng-if="!user.bitbucket" ng-click="link('bitbucket')">
+          <i class="fa fa-bitbucket"></i> Link Bitbucket Account
+        </button>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -35,15 +35,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Start Application
 app.listen(port);
 
-app.get('/*', function (req, res, next) {
-    if (/.js|.html|.css|templates|js|scripts/.test(req.path) || req.xhr) {
-        return next({ status: 404, message: 'Not Found' });
-    }
-    else {
-        return res.render('index');
-    }
-});
-
 // Let user know which port
 console.log('Server running on port' + port);
 
@@ -100,7 +91,8 @@ function createJWT(user) {
 
 app.get('/api/me', ensureAuthenticated, function(request, response) {
   User.findById(request.user, function(error, user) {
-    res.send(user);
+    response.send(user);
+    console.log(user);
   });
 });
 
@@ -350,6 +342,16 @@ app.post('/auth/unlink', ensureAuthenticated, function(req, res) {
     });
   });
 });
+
+app.get('/*', function (req, res, next) {
+    if (/.js|.html|.css|templates|js|scripts/.test(req.path) || req.xhr) {
+        return next({ status: 404, message: 'Not Found' });
+    }
+    else {
+        return res.render('index');
+    }
+});
+
 
 // Export App
 // exports = module.exports = app;

@@ -4,7 +4,6 @@ angular.module('oSource')
       ProfileService.getProfile()
         .then(function(response) {
           $scope.user = response.data;
-          console.log($scope.user);
         })
         .catch(function(response) {
           toastr.error(response.data.message, response.status);
