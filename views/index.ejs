@@ -11,7 +11,7 @@
     <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
     <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
     <!-- <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css"> -->
-    <link rel="stylesheet" href="\lib\angular-toastr\dist\angular-toastr.min.css">
+    <link rel="stylesheet" href="/lib/angular-toastr/dist/angular-toastr.css">
     <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="/css/style.less" type="text/less">
     <link rel="stylesheet" href="/css/style.css">
@@ -27,11 +27,12 @@
             rootpath: ":/a.com/"
         };
     </script>
+    <script src="/lib/less/dist/less.min.js"></script>
 </head>
 <body>
     <div class="container">
         <div ng-include="'js/ngApp/app/header.html'"></div>
-        
+
         <ui-view></ui-view>
     </div>
 
