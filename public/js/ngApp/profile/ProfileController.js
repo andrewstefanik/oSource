@@ -1,5 +1,5 @@
 angular.module('oSource')
-.controller('ProfileController', ['$scope', '$auth', 'ProfileService', function($scope, $auth, ProfileService) {
+.controller('ProfileController', ['$scope', '$auth', 'ProfileService', 'ListService', function($scope, $auth, ProfileService, ListService) {
     $scope.title = 'Activity';
 
     $scope.getProfile = function() {
@@ -11,5 +11,13 @@ angular.module('oSource')
         });
     };
 
-    
+    $scope.listRepos = function() {
+        ListService.listRepos().then(function(response) {
+            $scope.list = response.data;
+        }).catch(function(error) {
+            throw error;
+        });
+    };
+
+    $scope.listRepos();
 }]);
