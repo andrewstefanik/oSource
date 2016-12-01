@@ -33,11 +33,15 @@
                 Search term: {{term}}
             </h3>
             
-                <div class="container" ng-repeat="result in results">
-                    <div>Name: {{result.full_name}}</div>
-                    <div>Language: {{result.language}}</div>
-                    <div>Stars: {{result.stargazers_count | number}}</div>
-                    <div>Last Updated: {{result.updated_at | date }}</div>
+                <div class="list-group" ng-repeat="result in results">
+                    <a ui-sref="Search.details({fullname: result.full_name})" class="list-group-item"><div class="list-group-item-header">
+                            <div>Name: {{result.full_name}}</div>
+                        </div>
+                        <div class="list-group-item-text">
+                            <div>Language: {{result.language}}</div>
+                            <div>Stars: {{result.stargazers_count | number}}</div>
+                            <div>Last Updated: {{result.updated_at | date }}</div>
+                        </div></a>
                 </div>
 
                 <ui-view></ui-view>
