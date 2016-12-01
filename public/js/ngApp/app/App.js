@@ -1,4 +1,4 @@
-angular.module('oSource', ['ui.router', 'satellizer', 'ngResource'])
+angular.module('oSource', ['ui.router', 'satellizer', 'ngResource', 'toastr'])
 .config (['$stateProvider', '$urlRouterProvider', '$locationProvider', '$authProvider',
 function ($stateProvider, $urlRouterProvider, $locationProvider, $authProvider) {
 
@@ -26,7 +26,27 @@ function ($stateProvider, $urlRouterProvider, $locationProvider, $authProvider) 
     .state('Login', {
         url: '/',
         templateUrl: '/js/ngApp/user/login/login.html',
-        controller: 'LoginController',
+        controller: 'LoginController'
+    })
+    .state('Home', {
+        url: '/home',
+        templateUrl: '/js/ngApp/home/home.html',
+        controller: 'HomeController'
+    })
+    .state('Add', {
+        url: '/add',
+        templateUrl: '/js/ngApp/add/add.html'
+        // controller: 'AddController'
+    })
+    .state('Search', {
+        url: '/search',
+        templateUrl: '/js/ngApp/search/search.html',
+        controller: 'SearchController'
+    })
+    .state('Search.results', {
+        url: '/results',
+        templateUrl: '/js/ngApp/search/result.html',
+        controller: 'ResultController'
     })
     .state('Logout', {
         url: '/logout',
@@ -41,29 +61,23 @@ function ($stateProvider, $urlRouterProvider, $locationProvider, $authProvider) 
         //     loginRequired: loginRequired
         // }
     })
-    .state('Add', {
-        url: '/add',
-        templateUrl: '/js/ngApp/add/add.html',
-        controller: 'AddController',
-        // resolve: {
-        //     loginRequired: loginRequired
-        // }
+    .state('Settings', {
+        url: '/settings',
+        templateUrl: '/js/ngApp/settings/setting.html',
+        controller: 'SettingsController'
     });
     $urlRouterProvider.otherwise('/');
-    $locationProvider.html5Mode({
-        enabled: true,
-        requireBase: false
-    });
+    $locationProvider.html5Mode(true);
 
 
-    $authProvider.github({
-        clientId: '5481e8f59a1a3622cdd9'
-    });
-    $authProvider.linkedin({
-        clientId: '7851i9yrepkdi1'
-    });
-    $authProvider.bitbucket({
-        clientId: 'zneuXuQUP8DrSRJnUP'
-    });
+$authProvider.github({
+    clientId: '5481e8f59a1a3622cdd9'
+});
+$authProvider.linkedin({
+    clientId: '7851i9yrepkdi1'
+});
+$authProvider.bitbucket({
+    clientId: 'zneuXuQUP8DrSRJnUP'
+});
 
 }]);

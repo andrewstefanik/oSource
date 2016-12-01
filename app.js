@@ -9,7 +9,7 @@ var qs = require('querystring');
 var jwt = require('jwt-simple');
 var moment = require('moment');
 var User = require('./models/user');
-
+var Form = require('./models/addForm');
 // Set up Database
 var db = require('./config/database');
 var config = require('./config/satellizer');
@@ -32,17 +32,12 @@ require('./routes/LoginRoute');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+//app.use('./routes/LoginRoute');
+// search route
+var search = require('./routes/searchRoute');
+app.use('/search', search);
 // Start Application
 app.listen(port);
-
-app.get('/*', function (req, res, next) {
-    if (/.js|.html|.css|templates|js|scripts/.test(req.path) || req.xhr) {
-        return next({ status: 404, message: 'Not Found' });
-    }
-    else {
-        return res.render('index');
-    }
-});
 
 // Let user know which port
 console.log('Server running on port' + port);
@@ -95,6 +90,30 @@ function createJWT(user) {
   };
   return jwt.encode(payload, config.TOKEN_SECRET);
 }
+
+//============ GET /api/me ==================//
+
+app.get('/api/me', ensureAuthenticated, function(request, response) {
+  User.findById(request.user, function(error, user) {
+    response.send(user);
+    console.log(user);
+  });
+});
+
+//============ PUT /api/me ===================//
+
+app.put('/api/me', ensureAuthenticated, function(req, res) {
+  User.findById(req.user, function(err, user) {
+    if (!user) {
+      return res.status(400).send({ message: 'User not found' });
+    }
+    user.displayName = req.body.displayName || user.displayName;
+    user.email = req.body.email || user.email;
+    user.save(function(err) {
+      res.status(200).end();
+    });
+  });
+});
 
 //============ Login With LinkedIn ==============//
 
@@ -327,6 +346,28 @@ app.post('/auth/unlink', ensureAuthenticated, function(req, res) {
     });
   });
 });
+// ========================================================== //
 
+// ===================== Add Route ========================= //
+app.post('/add', function (req, res) {
+    console.log(req.body);
+    Form.create(req.body, function(error, result) {
+        if(error != null) {
+            throw error;
+            console.log(error);
+        }
+        res.redirect('/profile');
+    });
+});
+
+// ========================================================== //
+app.get('/*', function (req, res, next) {
+    if (/.js|.html|.css|templates|js|scripts/.test(req.path) || req.xhr) {
+        return next({ status: 404, message: 'Not Found' });
+    }
+    else {
+        return res.render('index');
+    }
+});
 // Export App
 // exports = module.exports = app;

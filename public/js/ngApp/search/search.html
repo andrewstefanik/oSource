@@ -1,0 +1,47 @@
+<div class="container">
+	<div class="well">
+		<h1>Search</h1>
+		<p class="lead"> Search for a repo to add. </p>
+	</div>
+	<div class="row">
+		<section class="col-md-4 col-12-sm search">
+			<form ng-submit="search()">
+				<div class="form-group"> 
+                    <label for="term">Search term:</label> 
+                    <input type="text" class="form-control" id="term" name="term" ng-model="term">					
+                </div>
+                <div class="form-group">
+                    <label for="lang">Search by language</label>
+                    <input type="text" class="form-control" ng-model="lang" placeholder="optional">
+                </div>
+                <div class="form-group">
+                    <label for="sort">Sort by:<select name="sort" id="sort" ng-model="sort">
+                            <option value="">default</option>
+                            <option value="stars">stars</option>
+                            <option value="forks">forks</option>
+                            <option value="updated">updated</option>
+                        </select></label>
+                </div>
+
+                <label for="submit">
+                    <button class="btn btn-success btn-block" type="submit">Search</button>
+                </label>
+			</form>
+		</section>
+		<section class="col-md-8 col-12-sm search-result">
+            <h3>
+                Search term: {{term}}
+            </h3>
+            
+                <div class="container" ng-repeat="result in results">
+                    <div>Name: {{result.full_name}}</div>
+                    <div>Language: {{result.language}}</div>
+                    <div>Stars: {{result.stargazers_count | number}}</div>
+                    <div>Last Updated: {{result.updated_at | date }}</div>
+                </div>
+
+                <ui-view></ui-view>
+            
+        </section>
+	</div>
+</div>
