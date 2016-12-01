@@ -350,7 +350,6 @@ app.post('/auth/unlink', ensureAuthenticated, function(req, res) {
 
 // ===================== Add Route ========================= //
 app.post('/add', function (req, res) {
-    console.log(req.body);
     Form.create(req.body, function(error, result) {
         if(error != null) {
             console.log(error);
