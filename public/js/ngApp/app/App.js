@@ -43,10 +43,10 @@ function ($stateProvider, $urlRouterProvider, $locationProvider, $authProvider) 
         templateUrl: '/js/ngApp/search/search.html',
         controller: 'SearchController'
     })
-    .state('Search.results', {
-        url: '/results',
+    .state('Search.details', {
+        url: '/details/:fullname',
         templateUrl: '/js/ngApp/search/result.html',
-        controller: 'ResultController'
+        controller: 'DetailController'
     })
     .state('Logout', {
         url: '/logout',
