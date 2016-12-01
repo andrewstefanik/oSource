@@ -21,4 +21,10 @@ angular.module('oSource').controller('SearchController', [
             $scope.term = '';
         })
     }
-])
+]).controller('DetailController', function($scope, $state, $stateParams, SearchService) {
+    $scope.message = 'Hello detail page!';
+    SearchService.search.get({reponame: $stateParams['reponame']}, ((res) => {
+        $scope.repo = res;
+    }));
+
+})

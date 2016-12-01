@@ -19,4 +19,14 @@ router.get('/:term/:lang/:sort', (req, res) => {
         });
 });
 
+router.get('/:reponame', (req, res) => {
+    request.get(`https://api.github.com/search/repositories?q=${req.params['reponame']}`,
+    {headers: {"User-Agent": "oSource"}},
+    function(err, response, data) {
+        if(err) console.error(err);
+        res.send(data);
+    }
+    )
+})
+
 module.exports = router;

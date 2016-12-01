@@ -26,25 +26,37 @@ function ($stateProvider, $urlRouterProvider, $locationProvider, $authProvider) 
     .state('Login', {
         url: '/',
         templateUrl: '/js/ngApp/user/login/login.html',
-        controller: 'LoginController'
+        controller: 'LoginController',
+        data: {
+            loggedIn: false
+        }
     })
     .state('Home', {
         url: '/home',
         templateUrl: '/js/ngApp/home/home.html',
-        controller: 'HomeController'
+        controller: 'HomeController',
+        data: {
+            loggedIn: true
+        }
     })
     .state('Add', {
         url: '/add',
-        templateUrl: '/js/ngApp/add/add.html'
+        templateUrl: '/js/ngApp/add/add.html',
         // controller: 'AddController'
+        data: {
+            loggedIn: true
+        }
     })
     .state('Search', {
         url: '/search',
         templateUrl: '/js/ngApp/search/search.html',
-        controller: 'SearchController'
+        controller: 'SearchController',
+        data: {
+            loggedIn: true
+        }
     })
     .state('Search.details', {
-        url: '/details/:fullname',
+        url: '/details/:reponame',
         templateUrl: '/js/ngApp/search/result.html',
         controller: 'DetailController'
     })
@@ -59,12 +71,18 @@ function ($stateProvider, $urlRouterProvider, $locationProvider, $authProvider) 
         controller: 'ProfileController',
         // resolve: {
         //     loginRequired: loginRequired
-        // }
+        // },
+        data: {
+            loggedIn: true
+        }
     })
     .state('Settings', {
         url: '/settings',
         templateUrl: '/js/ngApp/settings/setting.html',
-        controller: 'SettingsController'
+        controller: 'SettingsController',
+        data: {
+            loggedIn: true
+        }
     });
     $urlRouterProvider.otherwise('/');
     $locationProvider.html5Mode(true);
@@ -80,4 +98,13 @@ $authProvider.bitbucket({
     clientId: 'zneuXuQUP8DrSRJnUP'
 });
 
-}]);
+}]).run(($rootScope, SecureRouteService) => {
+    $rootScope.$on('$stateChangeStart', (event, arg) => {
+        if (arg.data && arg.data.loggedIn) {
+            if(!SecureRouteService.loggedIn()) {
+                event.preventDefault();
+                $state.go('Login');
+            }
+        }
+    })
+})
