@@ -96,7 +96,7 @@ function createJWT(user) {
 app.get('/api/me', ensureAuthenticated, function(request, response) {
   User.findById(request.user, function(error, user) {
     response.send(user);
-    // console.log(user);
+    console.log(user);
   });
 });
 
@@ -296,6 +296,7 @@ app.post('/auth/github', function(req, res) {
                         user.github = profile.id;
                         user.picture = user.picture || profile.avatar_url;
                         user.displayName = user.displayName || profile.name;
+                        user.userName = user.userName || profile.login;
                         user.save(function() {
                             var token = createJWT(user);
                             res.send({ token: token });
@@ -314,6 +315,7 @@ app.post('/auth/github', function(req, res) {
                     user.picture = profile.avatar_url;
                     user.displayName = profile.name;
                     user.email = profile.email;
+                    user.userName = profile.login;
 
                     user.save(function() {
                         var token = createJWT(user);
