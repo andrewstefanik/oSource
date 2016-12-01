@@ -7,7 +7,7 @@ angular.module('oSource')
             $scope.user = response.data;
         }).catch(function(error) {
             throw error;
-            console.log(error);
+            // console.log(error);
         });
     };
 }]);
