@@ -96,7 +96,7 @@ function createJWT(user) {
 app.get('/api/me', ensureAuthenticated, function(request, response) {
   User.findById(request.user, function(error, user) {
     response.send(user);
-    console.log(user);
+    // console.log(user);
   });
 });
 
