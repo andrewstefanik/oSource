@@ -1,4 +1,4 @@
-angular.module('oSource', ['ui.router', 'satellizer', 'ngResource'])
+angular.module('oSource', ['ui.router', 'satellizer', 'ngResource', 'toastr'])
 .config (['$stateProvider', '$urlRouterProvider', '$locationProvider', '$authProvider',
 function ($stateProvider, $urlRouterProvider, $locationProvider, $authProvider) {
 
@@ -35,8 +35,8 @@ function ($stateProvider, $urlRouterProvider, $locationProvider, $authProvider) 
     })
     .state('Add', {
         url: '/add',
-        templateUrl: '/js/ngApp/add/add.html',
-        controller: 'AddController'
+        templateUrl: '/js/ngApp/add/add.html'
+        // controller: 'AddController'
     })
     .state('Search', {
         url: '/search',
@@ -61,8 +61,13 @@ function ($stateProvider, $urlRouterProvider, $locationProvider, $authProvider) 
         //     loginRequired: loginRequired
         // }
     })
-$urlRouterProvider.otherwise('/');
-$locationProvider.html5Mode(true);
+    .state('Settings', {
+        url: '/settings',
+        templateUrl: '/js/ngApp/settings/setting.html',
+        controller: 'SettingsController'
+    });
+    $urlRouterProvider.otherwise('/');
+    $locationProvider.html5Mode(true);
 
 
 $authProvider.github({

@@ -39,15 +39,6 @@ app.use('/search', search);
 // Start Application
 app.listen(port);
 
-app.get('/*', function (req, res, next) {
-    if (/.js|.html|.css|templates|js|scripts/.test(req.path) || req.xhr) {
-        return next({ status: 404, message: 'Not Found' });
-    }
-    else {
-        return res.render('index');
-    }
-});
-
 // Let user know which port
 console.log('Server running on port' + port);
 
@@ -99,6 +90,30 @@ function createJWT(user) {
   };
   return jwt.encode(payload, config.TOKEN_SECRET);
 }
+
+//============ GET /api/me ==================//
+
+app.get('/api/me', ensureAuthenticated, function(request, response) {
+  User.findById(request.user, function(error, user) {
+    response.send(user);
+    console.log(user);
+  });
+});
+
+//============ PUT /api/me ===================//
+
+app.put('/api/me', ensureAuthenticated, function(req, res) {
+  User.findById(req.user, function(err, user) {
+    if (!user) {
+      return res.status(400).send({ message: 'User not found' });
+    }
+    user.displayName = req.body.displayName || user.displayName;
+    user.email = req.body.email || user.email;
+    user.save(function(err) {
+      res.status(200).end();
+    });
+  });
+});
 
 //============ Login With LinkedIn ==============//
 
@@ -346,5 +361,13 @@ app.post('/add', function (req, res) {
 });
 
 // ========================================================== //
+app.get('/*', function (req, res, next) {
+    if (/.js|.html|.css|templates|js|scripts/.test(req.path) || req.xhr) {
+        return next({ status: 404, message: 'Not Found' });
+    }
+    else {
+        return res.render('index');
+    }
+});
 // Export App
 // exports = module.exports = app;
