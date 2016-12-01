@@ -9,7 +9,7 @@ var qs = require('querystring');
 var jwt = require('jwt-simple');
 var moment = require('moment');
 var User = require('./models/user');
-
+var Form = require('./models/addForm');
 // Set up Database
 var db = require('./config/database');
 var config = require('./config/satellizer');
@@ -327,6 +327,20 @@ app.post('/auth/unlink', ensureAuthenticated, function(req, res) {
     });
   });
 });
+// ========================================================== //
 
+// ===================== Add Route ========================= //
+app.post('/add', function (req, res) {
+    console.log(req.body);
+    Form.create(req.body, function(error, result) {
+        if(error != null) {
+            throw error;
+            console.log(error);
+        }
+        res.redirect('/profile');
+    });
+});
+
+// ========================================================== //
 // Export App
 // exports = module.exports = app;
