@@ -4,6 +4,8 @@
             <li ng-if="!isAuthenticated()"><a href="/">Login</a></li>
             <li ng-if="isAuthenticated()"><a href="/profile">Profile</a></li>
             <li>
+            <li ng-if="isAuthenticated()"><a ui-sref="Search">Search Github<i class="fa fa-github-alt" aria-hidden="true"></i></a></li>
+            <li>
                 <div class="search" role="search">
                     <form>
                         <label class="form-group">

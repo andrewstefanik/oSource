@@ -353,8 +353,8 @@ app.post('/add', function (req, res) {
     console.log(req.body);
     Form.create(req.body, function(error, result) {
         if(error != null) {
-            throw error;
             console.log(error);
+            throw error;
         }
         res.redirect('/profile');
     });
