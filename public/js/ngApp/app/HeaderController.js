@@ -13,5 +13,7 @@ angular.module('oSource').controller('NavbarController', ['$scope', '$auth', 'Pr
         });
     };
 
+    
+
     $scope.getProfile()
 }]);

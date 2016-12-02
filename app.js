@@ -296,6 +296,7 @@ app.post('/auth/github', function(req, res) {
                         user.github = profile.id;
                         user.picture = user.picture || profile.avatar_url;
                         user.displayName = user.displayName || profile.name;
+                        user.userName = user.userName || profile.login;
                         user.save(function() {
                             var token = createJWT(user);
                             res.send({ token: token });
@@ -314,6 +315,7 @@ app.post('/auth/github', function(req, res) {
                     user.picture = profile.avatar_url;
                     user.displayName = profile.name;
                     user.email = profile.email;
+                    user.userName = profile.login;
 
                     user.save(function() {
                         var token = createJWT(user);
@@ -350,7 +352,6 @@ app.post('/auth/unlink', ensureAuthenticated, function(req, res) {
 
 // ===================== Add Route ========================= //
 app.post('/add', function (req, res) {
-    console.log(req.body);
     Form.create(req.body, function(error, result) {
         if(error != null) {
             console.log(error);
