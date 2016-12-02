@@ -19,12 +19,17 @@ router.get('/:term/:lang/:sort', (req, res) => {
         });
 });
 
-router.get('/:reponame', (req, res) => {
-    request.get(`https://api.github.com/search/repositories?q=${req.params['reponame']}`,
+router.get('/user/:user', (req, res) => {
+    console.log('request ser from route**************:   ', req.params['user']);
+    var u = req.params['user'];
+
+    request.get(`https://api.github.com/users/${u}/repos`,
     {headers: {"User-Agent": "oSource"}},
     function(err, response, data) {
         if(err) console.error(err);
-        res.send(data);
+        res.json({
+            data: data
+        });
     }
     )
 })
