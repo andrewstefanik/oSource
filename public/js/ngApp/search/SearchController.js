@@ -3,18 +3,20 @@ angular.module('oSource').controller('SearchController', [
     '$http',
     '$state',
     'SearchService',
-    'ProfileSerivce',
-    function($scope, $http, $state, SearchService, ProfileSerivce) {
-
+    'ProfileService',
+    function($scope, $http, $state, SearchService, ProfileService) {
+        var userName;
         $scope.getProfile = function() {
             ProfileService.getProfile().then(function(response) {
                 $scope.user = response.data;
-                
+                $scope.userName = response.data.userName;
+                userName = $scope.userName;
             }).catch(function(error) {
                 throw error;
                 console.log(error);
         });
     };
+    $scope.getProfile();
 
         var results;
         $scope.results = '';
@@ -35,13 +37,13 @@ angular.module('oSource').controller('SearchController', [
             })
             $scope.term = '';
         })
-        $scope.showUser = ((a) => {
-            console.log(theUser)
+        $scope.showUser = (() => {
+            console.log(userName)
             SearchService.user.get({
-                user: a
+                user: userName
             }, function(res) {
-                $scope.displayUser = res
-                console.log(res);
+                $scope.displayUser = res.data;
+                console.log(res.data);
             })
         })
 
