@@ -33,7 +33,8 @@ angular.module('oSource').controller('SearchController', [
                 sort: $scope.sort
             }, function(res) {
                 $scope.results = res.items;
-                
+                console.log(res.items);
+
             })
             $scope.term = '';
         })
