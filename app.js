@@ -36,6 +36,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // search route
 var search = require('./routes/searchRoute');
 app.use('/search', search);
+
+// profile route
+var profile = require('./routes/profileRoute');
+app.use('/profile', profile);
+
 // Start Application
 app.listen(port);
 
@@ -296,6 +301,7 @@ app.post('/auth/github', function(req, res) {
                         user.github = profile.id;
                         user.picture = user.picture || profile.avatar_url;
                         user.displayName = user.displayName || profile.name;
+                        user.userName = user.userName || profile.login;
                         user.save(function() {
                             var token = createJWT(user);
                             res.send({ token: token });
@@ -314,6 +320,7 @@ app.post('/auth/github', function(req, res) {
                     user.picture = profile.avatar_url;
                     user.displayName = profile.name;
                     user.email = profile.email;
+                    user.userName = profile.login;
 
                     user.save(function() {
                         var token = createJWT(user);

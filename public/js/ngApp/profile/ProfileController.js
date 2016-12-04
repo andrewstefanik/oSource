@@ -1,13 +1,20 @@
 angular.module('oSource')
-.controller('ProfileController', ['$scope', '$auth', 'ProfileService', function($scope, $auth, ProfileService) {
-    $scope.title = 'Activity';
+.controller('ProfileController', ['$scope', '$http', 'ProfileService', 'SearchService', function($scope, $http, ProfileService, SearchService) {
+    $scope.title = 'Repos';
 
-    $scope.getProfile = function() {
-        ProfileService.getProfile().then(function(response) {
-            $scope.user = response.data;
-        }).catch(function(error) {
+    var userName;
+
+
+    ProfileService.getProfile().then(function (response) {
+        userName = response.data.userName;
+        $scope.userName = userName;
+        SearchService.user.get(
+            {user: userName}, function (res) {
+                $scope.list = res.data;
+                console.log(res.data);
+            });
+        }).catch(function (error) {
+            console.log(error);
             throw error;
-            // console.log(error);
         });
-    };
-}]);
+    }]);
