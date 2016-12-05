@@ -14,17 +14,6 @@ angular.module('oSource')
 
     $scope.getProfile();
 
-    $scope.getRepos = function() {
-        ProfileService.getRepos().then(function(response) {
-            console.log(response.data);
-            // $scope.data = response.data;
-        }).catch(function(error) {
-            throw error;
-        });
-    };
-
-    $scope.getRepos();
-
     // $scope.listRepos = function() {
     //     ListService.listRepos().then(function(response) {
     //         $scope.list = response.data;
