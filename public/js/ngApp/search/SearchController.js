@@ -43,8 +43,8 @@ angular.module('oSource').controller('SearchController', [
             SearchService.user.get({
                 user: userName
             }, function(res) {
-                $scope.displayUser = res.data;
-                console.log(res.data);
+                $scope.displayUser = res;
+                console.log(res);
             })
         })
 

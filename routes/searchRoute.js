@@ -28,8 +28,7 @@ router.get('/user/:user', (req, res) => {
     function(err, response, data) {
         if(err) console.error(err);
         res.send({data:data});
-    }
-    )
+    })
 })
 
 module.exports = router;
