@@ -8,7 +8,7 @@ router.get('/:term/:lang/:sort', (req, res) => {
     var lang = req.params['lang'] || null;
     var sort = req.params['sort'] || null;
 
-  
+
 
     request.get(
             `https://api.github.com/search/repositories?q=${term}+language:${lang}&sort=${sort}&order=desc`,
@@ -27,9 +27,7 @@ router.get('/user/:user', (req, res) => {
     {headers: {"User-Agent": "oSource"}},
     function(err, response, data) {
         if(err) console.error(err);
-        res.json({
-            data: data
-        });
+        res.send({data:data});
     }
     )
 })

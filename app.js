@@ -36,6 +36,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // search route
 var search = require('./routes/searchRoute');
 app.use('/search', search);
+
+// profile route
+var profile = require('./routes/profileRoute');
+app.use('/profile', profile);
+
 // Start Application
 app.listen(port);
 
@@ -96,7 +101,7 @@ function createJWT(user) {
 app.get('/api/me', ensureAuthenticated, function(request, response) {
   User.findById(request.user, function(error, user) {
     response.send(user);
-    console.log(user);
+    // console.log(user);
   });
 });
 

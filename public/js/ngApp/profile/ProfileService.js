@@ -7,7 +7,7 @@ angular.module('oSource').factory('ProfileService', ['$http', function($http) {
             return $http.put('/api/me', profileData);
         },
         getRepos: function() {
-            return $http.get('/:userName/repos');
+            return $http.get('/profile/repos');
         }
     }
 }]);
