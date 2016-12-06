@@ -13,17 +13,6 @@ angular.module('oSource')
                 var data = JSON.parse (res.data);
                 $scope.repoList = data;
                 console.log (data);
-
-                // var item, key, list;
-                //
-                // var list = res.data;
-                // for (key in list) {
-                //     item = list [key];
-                //     console.log (item);
-                // }
-
-                // $scope.repoList = res.data;
-                // console.log (res.data);
             });
         });
-    }]);
+}]);

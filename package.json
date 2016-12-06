@@ -4,7 +4,8 @@
   "description": "Open Source Tool",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "bower install"
   },
   "author": "Michael Miller, Andrew Stefanik",
   "license": "MIT",
@@ -12,6 +13,7 @@
     "angular": "^1.5.9",
     "body-parser": "^1.15.2",
     "bootstrap": "^3.3.7",
+    "bower": "^1.8.0",
     "ejs": "^2.5.3",
     "express": "^4.14.0",
     "jwt-simple": "^0.5.1",
