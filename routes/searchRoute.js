@@ -20,13 +20,15 @@ router.get('/:term/:lang/:sort', (req, res) => {
 });
 
 router.get('/user/:user', (req, res) => {
-    console.log('request ser from route**************:   ', req.params['user']);
+    console.log(`++++ Request recieved for ${req.params['user']}'s repos! ++++`);
     var u = req.params['user'];
 
     request.get(`https://api.github.com/users/${u}/repos`,
-    {headers: {"User-Agent": "oSource"}},
+    {headers: {"User-Agent": "oSource"},
+    },
     function(err, response, data) {
         if(err) console.error(err);
+        data = JSON.parse(data);
         res.json({
             data: data
         });
