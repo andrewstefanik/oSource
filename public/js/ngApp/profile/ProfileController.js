@@ -10,23 +10,9 @@ angular.module('oSource')
         $scope.userName = userName;
         SearchService.user.get(
             {user: userName}, function (res) {
-                $scope.list = res.data;
-                // console.log(res.data);
+                var data = JSON.parse (res.data);
+                $scope.repoList = data;
+                console.log (data);
             });
-        }).catch(function (error) {
-            console.log(error);
-            throw error;
         });
-
-    // $scope.getRepos();
-
-    // $scope.listRepos = function() {
-    //     ListService.listRepos().then(function(response) {
-    //         $scope.list = response.data;
-    //     }).catch(function(error) {
-    //         throw error;
-    //     });
-    // };
-    //
-    // $scope.listRepos();
 }]);
