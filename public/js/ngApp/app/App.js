@@ -40,13 +40,21 @@ function ($stateProvider, $urlRouterProvider, $locationProvider, $authProvider) 
         }
     })
     .state('Add', {
-        url: '/add',
+        url: '/add/:userName/:name',
         templateUrl: '/js/ngApp/add/add.html',
-        // controller: 'AddController'
+        controller: 'AddController',
         data: {
             loggedIn: true
         }
     })
+    // .state('Addnew', {
+    //     url: '/add/:userName/:name',
+    //     templateUrl: 'js/ngApp/add/add.html',
+    //     controller: 'AddController',
+    //     data: {
+    //         loggedIn: true
+    //     }
+    // })
     .state('Search', {
         url: '/search',
         templateUrl: '/js/ngApp/search/search.html',
