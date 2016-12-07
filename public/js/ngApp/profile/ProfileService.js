@@ -5,9 +5,6 @@ angular.module('oSource').factory('ProfileService', ['$http', function($http) {
         },
         updateProfile: function(profileData) {
             return $http.put('/api/me', profileData);
-        },
-        getRepos: function() {
-            return $http.get('/profile/repos');
         }
     }
 }]);

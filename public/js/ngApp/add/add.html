@@ -23,7 +23,7 @@
                                 *
                             </span>
                         </label>
-                        <input class="form-control" id="repo_name" name="repo_name" type="text"/>
+                        <input class="form-control" id="repo_name" name="repo_name" type="text" ng-model="results.name"/>
                         <span class="help-block" id="hint_text">
                             Place the name of your repo here
                         </span>
@@ -35,7 +35,7 @@
                                 *
                             </span>
                         </label>
-                        <input class="form-control" id="repo_link" name="repo_link" type="text"/>
+                        <input class="form-control" id="repo_link" name="repo_link" type="text" ng-model="results.html_url"/>
                         <span class="help-block" id="hint_url">
                             Link your repo here
                         </span>
@@ -47,7 +47,7 @@
                                 *
                             </span>
                         </label>
-                        <textarea class="form-control" cols="30" id="repo_description" name="repo_description" rows="8"></textarea>
+                        <textarea class="form-control" cols="30" id="repo_description" name="repo_description" rows="8" ng-model="results.description"></textarea>
                         <span class="help-block" id="hint_textarea">
                             Give a brief description of your project and what type of assistance you're looking for.
                         </span>
