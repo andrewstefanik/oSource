@@ -17,8 +17,25 @@ angular.module('oSource').controller('SearchController', [
                 sort: $scope.sort
             }, function(res) {
                 $scope.results = res.items;
-                
-            });
+
+                console.log(res.items);
+
+            })
+            $scope.term = '';
+        })
+        $scope.showUser = (() => {
+            console.log(userName)
+            SearchService.user.get({
+                user: userName
+            }, function(res) {
+                $scope.displayUser = res;
+                console.log(res);
+            })
+        })
+
+        $scope.pick = ((repo) => {
+            $scope.selectedRepo = repo;
+            $scope.details = true;
         });
     }
 ]).directive('searchResults', function () {

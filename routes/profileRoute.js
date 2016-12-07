@@ -1,14 +1,25 @@
+var User = require('../models/user');
 var express = require('express');
 var request = require('request');
 var router = express.Router();
 
-request.get('/:userName/repos', (request, response) => {
-    var userName = $scope.userName;
+router.get('/repos', (request, response) => {
+    var userName;
+    // console.log('$$$$$$$$$$$$$$$ Hello');
 
-    request.get(`https://api.github.com/${user.userName}/repos?type=owner`,
+    // User.find().then((user) => {
+    //     // console.log(request);
+    // })
+
+    console.log('Above the get');
+    request.get('https://api.github.com/user/repos',
         { headers: {'User-Agent': 'oSource'}},
         (error, response, data) => {
+            console.log('Hello $$$$$$$$$');
+
             if (error) response.sendStatus(400);
             response.send(data);
-        })
+        });
     });
+
+module.exports = router;

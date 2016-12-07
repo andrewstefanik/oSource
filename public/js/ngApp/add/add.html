@@ -1,9 +1,9 @@
 <style>
-.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form {
+.formden_header h2, .formden_header p, form {
     font-family: Arial, Helvetica, sans-serif;
     color: black
 }
-.bootstrap-iso form button, .bootstrap-iso form button:hover {
+form button, form button:hover {
     color: #ffffff !important;
 }
 .asteriskField{
@@ -11,7 +11,7 @@
 }
 </style>
 
-<div class="bootstrap-iso">
+<!-- <div class="bootstrap-iso"> -->
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -23,7 +23,7 @@
                                 *
                             </span>
                         </label>
-                        <input class="form-control" id="repo_name" name="repo_name" type="text"/>
+                        <input class="form-control" id="repo_name" name="repo_name" type="text" ng-model="results.name"/>
                         <span class="help-block" id="hint_text">
                             Place the name of your repo here
                         </span>
@@ -35,7 +35,7 @@
                                 *
                             </span>
                         </label>
-                        <input class="form-control" id="repo_link" name="repo_link" type="text"/>
+                        <input class="form-control" id="repo_link" name="repo_link" type="text" ng-model="results.html_url"/>
                         <span class="help-block" id="hint_url">
                             Link your repo here
                         </span>
@@ -47,7 +47,7 @@
                                 *
                             </span>
                         </label>
-                        <textarea class="form-control" cols="30" id="repo_description" name="repo_description" rows="8"></textarea>
+                        <textarea class="form-control" cols="30" id="repo_description" name="repo_description" rows="8" ng-model="results.description"></textarea>
                         <span class="help-block" id="hint_textarea">
                             Give a brief description of your project and what type of assistance you're looking for.
                         </span>
@@ -228,6 +228,5 @@
             </div>
         </div>
     </div>
-</div>
 
 <!-- Changed some input -->
