@@ -1,4 +1,4 @@
-angular.module('oSource', ['ui.router', 'satellizer', 'ngResource', 'toastr'])
+angular.module('oSource', ['angularUtils.directives.dirPagination', 'ui.router', 'satellizer', 'ngResource', 'toastr'])
 .config (['$stateProvider', '$urlRouterProvider', '$locationProvider', '$authProvider',
 function ($stateProvider, $urlRouterProvider, $locationProvider, $authProvider) {
 
