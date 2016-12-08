@@ -18,10 +18,9 @@
 
 <div class="boxed-group">
     <p>Your Open-Source Projects <a href="/add"><button class="btn">New</button></a></p>
-    <div class="boxed-inner">
+    <div class="boxed-inner" ng-repeat="repo in repos">
         <ul>
-            <li>Example 1</li>
-            <li>Example 2</li>
+            <li>{{repo.repo_name}}</li>
         </ul>
     </div>
 </div>
