@@ -6,7 +6,7 @@
                     <input class="form-control" id="searchOsource" type="text" ng-model="vm.searchTerm" ng-model-options="{debounce: 1000}" ng-change="vm.findMatches()" />
                 </div>
             </form>
-                
+
             <div class="lisst-group matching-results" ng-if="vm.repoMatch.length">
                 <ul class="search-list-group">
                     <li ng-repeat="match in vm.repoMatch"><a href="#" class="list-group-item matching-results-anchor">{{match}}</a></li>
