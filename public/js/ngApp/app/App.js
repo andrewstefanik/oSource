@@ -1,6 +1,6 @@
-angular.module('oSource', ['ui.router', 'satellizer', 'ngResource', 'toastr', 'LocalStorageModule'])
-.config (['$stateProvider', '$urlRouterProvider', '$locationProvider', '$authProvider', 'localStorageServiceProvider',
-function ($stateProvider, $urlRouterProvider, $locationProvider, $authProvider, localStorageServiceProvider) {
+angular.module('oSource', ['ui.router', 'satellizer', 'ngResource', 'toastr', 'LocalStorageModule', 'angularUtils.directives.dirPagination'])
+ .config (['$stateProvider', '$urlRouterProvider', '$locationProvider', '$authProvider', 'localStorageServiceProvider',
+ function ($stateProvider, $urlRouterProvider, $locationProvider, $authProvider, localStorageServiceProvider) {
 
     var skipIfLoggedIn = ['$q', '$auth', '$location', function($q, $auth, $location) {
         var deffered = $q.defer();

@@ -23,7 +23,7 @@ router.get('/:term/:lang/:sort', (req, res) => {
         console.log('request ser from route**************:   ', req.params['user']);
         var u = req.params['user'];
 
-        request.get(`https://api.github.com/users/${u}/repos`,
+        request.get(`https://api.github.com/users/${u}/repos?per_page=200`,
             {headers: {"User-Agent": "oSource"}},
             function(err, response, data) {
                 if(err) console.error(err);

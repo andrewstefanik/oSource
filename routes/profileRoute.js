@@ -19,7 +19,7 @@ router.get('/repos', (request, response) => {
 
             if (error) response.sendStatus(400);
             response.send(data);
-        });
+        })
     });
 
 module.exports = router;

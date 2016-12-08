@@ -1,25 +1,39 @@
 <p>Search term: "{{term}}"</p>
-<div class="panel panel-default" ng-repeat="result in results">
+<div ng-repeat="result in results | limitTo: 1">
+    <ul>
+        <li dir-paginate="result in results | itemsPerPage: 5">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        Name: {{result.full_name}}
+                    </h4>
+                </div>
+                <div class="panel-body">
+                    <h4><a href="{{result.html_url}}">{{result.full_name}}</a> <i
+                        class="fa fa-external-link" aria-hidden="true"></i></h4>
+                        <hr>
+                        <h4>Description:</h4>
+                        <p>{{result.description}}</p>
+                        <hr>
+                        <h4>Language:</h4>
+                        <p>{{result.language}}</p>
+                        <hr>
+                        <h4>Stars:</h4>
+                        <p>{{result.stargazers_count | number}}</p>
+                        <hr>
+                        <h4>Updated:</h4>
+                        <p>Last Updated: {{result.updated_at | date }}</p>
 
-    <div class="panel-heading">
-        <h4 class="panel-title">
-            Name: {{result.full_name}}
-        </h4>
-    </div>
-    <div class="panel-body">
-        <h4><a href="{{result.html_url}}">{{result.full_name}}</a> <i
-                class="fa fa-external-link" aria-hidden="true"></i></h4>
-        <hr>
-        <h4>Description:</h4>
-        <p>{{result.description}}</p>
-        <hr>
-        <h4>Language:</h4>
-        <p>{{result.language}}</p>
-        <hr>
-        <h4>Stars:</h4>
-        <p>{{result.stargazers_count | number}}</p>
-        <hr>
-        <h4>Updated:</h4>
-        <p>Last Updated: {{result.updated_at | date }}</p>
-    </div>
+                    </div>
+            </div>
+            </li>
+        </ul>
+</div>
+<div align="center">
+    <dir-pagination-controls
+    [max-size=""]
+    [direction-links="true"]
+    [boundary-links="true"]
+    [template-url="/lib/angularUtils-pagination/dirPagination.tpl.html"]>
+</dir-pagination-controls>
 </div>
