@@ -1,12 +1,21 @@
 <h4>{{userName}}'s {{title}}</h4>
 <div class="repos" ng-repeat="repo in repoList track by $index">
-        Name: <a href="{{repo.html_url}}"><input style="border: none;" value="{{repo.name}}" disabled></a><br/>
-        Language: {{repo.language}}<br/>
-        Description: {{repo.description}}<br/><br/>
-        <a ui-sref="Add({userName:repo.owner.login, name:repo.name})"><button class="btn">Add to oSource</button></a>
-        <hr/>
+    <!-- <ul> -->
+        <!-- <li dir-paginate="repo in repoList | itemsPerPage: 5"> -->
+            Name: <a href="{{repo.html_url}}"><input style="border: none;" value="{{repo.name}}" disabled></a><br/>
+            Language: {{repo.language}}<br/>
+            Description: {{repo.description}}<br/><br/>
+            <a ui-sref="Add({userName:repo.owner.login, name:repo.name})"><button class="btn">Add to oSource</button></a>
+            <hr/>
+        <!-- </li> -->
+    <!-- </ul> -->
 </div>
-
+<!-- <dir-pagination-controls
+    [max-size=""]
+    [direction-links="true"]
+    [boundary-links="true"]
+    >
+    </dir-pagination-controls> -->
 <div class="boxed-group">
     <p>Open-Source you contribute to</p>
     <div class="boxed-inner">
