@@ -3,12 +3,12 @@ angular.module('oSource')
     $scope.title = 'Repos';
 
     ProfileService.getProfile().then(function (response) {
-        var userName = response.data.userName;
+    	var userName = response.data.userName;
+        localStorageService.set('username', userName);
         $scope.userName = userName;
         SearchService.user.get({user: userName}, function (res) {
             var data = JSON.parse (res.data);
             $scope.repoList = data;
-            localStorageService.set('userData', data);
             console.log (data);
         })
         ProfileService.getRepos($scope.userName).then(function(res) {
@@ -16,6 +16,6 @@ angular.module('oSource')
             // var repoData = JSON.parse(res.data);
             $scope.repos = res.data;
             // console.log(repoData);
-        });
-    });
+        })
+    })
 }]);

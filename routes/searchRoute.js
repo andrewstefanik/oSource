@@ -1,6 +1,19 @@
 var express = require('express');
 var request = require('request');
+var Form = require('../models/addForm');
 var router = express.Router();
+
+//get added repos with username
+router.get('/added/:user', (req, res) => {
+    console.log(req.params['user']);
+    Form.find({repo_owner: req.params['user']}, (err, doc) => {
+        if(err) console.error(err);
+        console.log(doc);
+        res.json({
+            data: doc
+        });
+    });
+});
 
 router.get('/:term/:lang/:sort', (req, res) => {
 
