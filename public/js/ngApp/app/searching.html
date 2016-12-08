@@ -1,0 +1,45 @@
+<div ng-controller="RepoSearchController as vm">
+        <section class="search-user-repos">
+            <form>
+                <div class="form-group">
+                    <label for="searchOsource">Search your repos on <strong>oSource</strong> </label>
+                    <input class="form-control" id="searchOsource" type="text" ng-model="vm.searchTerm" ng-model-options="{debounce: 1000}" ng-change="vm.findMatches()" />
+                </div>
+            </form>
+                
+            <div class="lisst-group matching-results" ng-if="vm.repoMatch.length">
+                <ul class="search-list-group">
+                    <li ng-repeat="match in vm.repoMatch"><a href="#" class="list-group-item matching-results-anchor">{{match}}</a></li>
+                </ul>
+            </div>
+        </section>
+</div>
+<style>
+    .search-user-repos {
+        max-width: 300px;
+    }
+    .matching-results {
+        text-align: center;
+    }
+    .matching-results li {
+        list-style: none;
+        position: relative;
+        left: 0;
+    }
+
+    .search-list-group li a.matching-results-anchor {
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+        color: #222;
+        background: #aaa;
+        -webkit-transition: all 300ms ease-in-out;
+        -moz-transition: all 300ms ease-in-out;
+        transition: all 300ms ease-in-out;
+    }
+    .search-list-group li a.matching-results-anchor:hover {
+        background: #666;
+        font-size: 1.1em;
+    }
+</style>
