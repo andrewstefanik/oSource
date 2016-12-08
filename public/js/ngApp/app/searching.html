@@ -9,14 +9,19 @@
                         </md-input-container>
                     </form>
                     <md-list ng-if="vm.repoMatch.length">
-                      <md-list-item ng-repeat="match in vm.repoMatch" class="md-3-line">
-                          <div class="md-list-item-text">
-                              <p>Repo name: {{match.name}}</p>
-                              <p>Description: {{match.description}}</p>
-                              <p>Languages: {{match.language}}</p>
-                              <p>Skill Level: {{match.skill}}</p>
-                          </div>
-                      </md-list-item>
+                      
+                          <md-list-item ng-repeat="match in vm.repoMatch" class="md-3-line">
+                              <div class="md-list-item-text">
+                                  <a href ui-sref="Profile"><h4>Repo name: {{match.name}}</h4></a>
+                                  <p><strong>Description</strong>: {{match.description}}</p>
+                                  
+                                  <p><strong>Languages</strong>: {{match.language}}</p>
+                                  
+                                  <p><strong>Skill Level</strong>: {{match.skill}}</p>
+                                  <p><strong>Owner</strong>: {{match.owner}}</p>
+                              </div>
+                          </md-list-item>
+                      
                     </md-list>
                 </md-content>
             </md-sidenav>
