@@ -11,9 +11,10 @@
                     <md-list ng-if="vm.repoMatch.length">
                       <md-list-item ng-repeat="match in vm.repoMatch" class="md-3-line">
                           <div class="md-list-item-text">
-                              <p>{{match.name}}</p>
-                              <p>{{match.description}}</p>
-                              <p>{{match.language}}</p>
+                              <p>Repo name: {{match.name}}</p>
+                              <p>Description: {{match.description}}</p>
+                              <p>Languages: {{match.language}}</p>
+                              <p>Skill Level: {{match.skill}}</p>
                           </div>
                       </md-list-item>
                     </md-list>
