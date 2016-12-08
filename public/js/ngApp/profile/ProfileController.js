@@ -1,5 +1,5 @@
 angular.module('oSource')
-.controller('ProfileController', ['$scope', '$rootScope', '$http', 'ProfileService', 'SearchService', function($scope, $http, $rootScope, ProfileService, SearchService) {
+.controller('ProfileController', ['$scope', '$rootScope', '$http', 'ProfileService', 'SearchService', 'localStorageService', function($scope, $http, $rootScope, ProfileService, SearchService, localStorageService) {
     $scope.title = 'Repos';
 
     ProfileService.getProfile().then(function (response) {
@@ -8,6 +8,7 @@ angular.module('oSource')
         SearchService.user.get({user: userName}, function (res) {
             var data = JSON.parse (res.data);
             $scope.repoList = data;
+            localStorageService.set('userData', data);
             console.log (data);
         })
         ProfileService.getRepos($scope.userName).then(function(res) {
@@ -15,6 +16,6 @@ angular.module('oSource')
             // var repoData = JSON.parse(res.data);
             $scope.repos = res.data;
             // console.log(repoData);
-        })
-    })
+        });
+    });
 }]);
