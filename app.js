@@ -14,6 +14,8 @@ var Form = require('./models/addForm');
 var db = require('./config/database');
 var config = require('./config/satellizer');
 
+var personIn;
+
 // Set Port
 var port = process.env.PORT || 3000;
 
@@ -353,7 +355,7 @@ app.post('/auth/unlink', ensureAuthenticated, function(req, res) {
     });
   });
 });
-// ========================================================== //
+// ===================== Profile =========================== //
 
 // ===================== Add Route ========================= //
 app.post('/add', function (req, res) {
