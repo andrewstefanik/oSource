@@ -1,9 +1,9 @@
-angular.module('oSource').controller('RepoSearchController', function(localStorageService, SearchService, $mdSidenav) {
+angular.module('oSource').controller('RepoSearchController', ['localStorageService', 'SearchService', '$mdSidenav', function(localStorageService, SearchService, $mdSidenav) {
     var userName = localStorageService.get('username');
     var userRepos;
     console.log(userName);
     SearchService.added.get({user: userName}, ((res) => {
-        console.log(res)
+        console.log(res.data)
         userRepos = res.data;
         console.log(userRepos);
     })
@@ -36,4 +36,4 @@ angular.module('oSource').controller('RepoSearchController', function(localStora
     this.open = (() => {
         $mdSidenav('repoSearch').toggle();
     })
-});
+}]);
