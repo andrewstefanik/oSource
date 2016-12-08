@@ -1,22 +1,19 @@
 <div class="container">
-	<div class="well">
-		<h1>Search</h1>
-		<p class="lead"> Search for a repo to add. </p>
-        
-        {{displayUser}}
-        <button ng-click="showUser(userName)">show repos</button>
-	</div>
-	<div class="row">
-		<section class="col-md-4 col-12-sm">
-			<form ng-submit="search()">
-				<div class="form-group"> 
-                    <label for="term">Search term:</label> 
-                    <input type="text" class="form-control" id="term" name="term" ng-model="term">					
+    <div class="well">
+        <h1>Search</h1>
+        <p class="lead"> Search for a repo to add. </p>
+    </div>
+    <div class="row">
+        <section class="col-md-4 col-xs-12">
+            <form ng-submit="search()">
+                <div class="form-group">
+                    <label for="term">Search term:</label>
+                    <input type="text" class="form-control" id="term" name="term" ng-model="term">
                 </div>
                 <div class="form-group">
                     <label for="lang">Search by language</label>
-                    <input type="text" class="form-control" ng-model="lang" placeholder="optional">
-                    <div class="bg-info-alert">
+                    <input id="lang" type="text" class="form-control" ng-model="lang" placeholder="optional">
+                    <div class="bg-info">
                         <i class="fa fa-info-circle" aria-hidden="true"></i>
                         <small>default is JavaScript</small>
                     </div>
@@ -30,58 +27,19 @@
                             <option value="updated">updated</option>
                         </select>
                     </label>
-                    <div class="bg-info-alert">
+                    <div class="bg-info">
                         <i class="fa fa-info-circle" aria-hidden="true"></i>
                         <small>default sorted by stars</small>
                     </div>
                 </div>
 
-                <label for="submit">
+                <label>
                     <button class="btn btn-success btn-block" type="submit">Search</button>
                 </label>
-			</form>
-		</section>
-		<section class="col-md-8 col-12-sm">
-            
-                <div class="panel panel-default" ng-repeat="result in results">
-                    
-                    <div class="panel-heading" ng-click="pick(repo);">
-                        <h4 class="panel-title">
-                            Name: {{result.full_name}}
-                        </h4>
-                    </div>
-                    <div class="panel-body" ng-if="details">
-                        <div class="row">
-                            <div class="col-12-xs">
-                                <h4><a href="{{selectedRepo.html_url}}">{{selectedRepo.full_name}}</a> <i class="fa fa-external-link" aria-hidden="true"></i></h4>
-                                <hr>
-                                user:     {{selectedRepo.owner.login}}
-                                <hr>
-                                <button ng-click="showUser(selectedRepo.owner.login)">show repos</button>
-                                
-                                <hr>
-                                <h4>Description</h4>
-                                <p>{{result.description}}</p>
-                                <hr>
-                                <h5>Language</h5>
-                                <p>{{result.language}}</p>
-                                <hr>
-                            </div>
-                            <div class="col-12-xs">
-                                <i class="fa fa-star" aria-hidden="true"></i> <span>{{result.stargazers_count | number}}</span>
-                                <hr>
-                                <i class="fa fa-calendar" aria-hidden="true"></i> <span>Last Updated: {{result.updated_at | date }}</span>                               
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="panel-footer">
-                        <button class="btn btn-default" ng-click="pick(result)">More Details</button>
-                        <a class="btn btn-success" ui-sref="add({id: result.id})">Add to oSource</a>
-                    </div>
-                </div>
-
-                {{selectedRepo | json}}
+            </form>
         </section>
-	</div>
+        <section class="col-md-8 col-xs-12">
+            <search-results term="{{term}}" results="results"></search-results>
+        </section>
+    </div>
 </div>

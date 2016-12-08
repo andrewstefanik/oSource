@@ -30,6 +30,7 @@
 <body>
     <div class="container">
         <div ng-include="'js/ngApp/app/header.html'"></div>
+        <div ng-include="'js/ngApp/app/searching.html'"></div>  
 
         <ui-view></ui-view>
     </div>
@@ -42,6 +43,7 @@
     <script src="/lib/angular-resource/angular-resource.min.js"></script>
     <script src="/lib/angular-animate/angular-animate.min.js"></script>
     <script src="/lib/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="\lib\angular-local-storage\dist\angular-local-storage.min.js"></script>
     <!--============ App scripts ========== -->
     <script src="/js/ngApp/app/App.js"></script>
     <script src="/js/ngApp/app/HeaderController.js"></script>
@@ -54,6 +56,7 @@
     <script src="/js/ngApp/user/logout/LogoutController.js"></script>
     <script src="/js/ngApp/add/AddController.js"></script>
     <script src="/js/ngApp/app/appService.js"></script>
+    <script src="/js/ngApp/app/searching.js"></script>
     <!-- <script src="/js/ngApp/add/AddController.js"></script> -->
 
 </body>
