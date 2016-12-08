@@ -2,7 +2,7 @@ angular.module('oSource').controller('RepoSearchController', function(localStora
     var userName = localStorageService.get('username');
     var userRepos;
     console.log(userName);
-    SearchService.added.get({user: 'andrewstefanik'}, ((res) => {
+    SearchService.added.get({user: userName}, ((res) => {
         console.log(res)
         userRepos = res.data;
         console.log(userRepos);
