@@ -1,10 +1,22 @@
-angular.module('oSource').controller('RepoSearchController', ['localStorageService', function(localStorageService, $scope) {
-    var userRepos = localStorageService.get('userData');
+angular.module('oSource').controller('RepoSearchController', function(localStorageService, SearchService, $mdSidenav) {
+    var userName = localStorageService.get('username');
+    var userRepos;
+    console.log(userName);
+    SearchService.added.get({user: userName}, ((res) => {
+        console.log(res)
+        userRepos = res.data;
+        console.log(userRepos);
+    })
+    );
     this.repo = [];
     this.searchTerm = '';
     this.repoMatch;
     var repoNames = userRepos.forEach((repo) => {
-        this.repo.push(repo.name);
+        this.repo.push({
+            name: repo.name,
+            description: repo.description,
+            language: repo.language
+        });
     });
     this.findMatches = (() => {
         console.log('finding matches......');
@@ -14,11 +26,14 @@ angular.module('oSource').controller('RepoSearchController', ['localStorageServi
         var newArr = [];
         var singleWord = arrayToSearch.map((el, idx, arr) => {
             var len = charsToMatch.length;
-            var partWord = el.slice(0, len);
+            var partWord = el.name.slice(0, len);
             if(partWord == charsToMatch) {
                   newArr.push(el);
             }
         });
         return newArr;
-    }
-}]);
+    };
+    this.open = (() => {
+        $mdSidenav('repoSearch').toggle();
+    })
+});
