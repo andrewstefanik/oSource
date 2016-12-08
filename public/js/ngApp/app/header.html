@@ -4,17 +4,7 @@
             <ul class="nav navbar-nav">
                 <li ng-if="!isAuthenticated()"><a href="/">Login</a></li>
                 <li ng-if="isAuthenticated()"><a href="/profile">Profile</a></li>
-                <li>
 		        <li ng-if="isAuthenticated()"><a ui-sref="Search">Search Github</a></li>
-                <li>
-                    <div class="search" role="search">
-                        <form>
-                            <label class="form-group">
-                                <input type="text" placeholder="Search oSource">
-                            </label>
-                        </form>
-                    </div>
-                </li>
             </ul>
             <ul ng-if="isAuthenticated()" class="nav navbar-nav pull-right">
                 <li class="header-nav-item dropdown">
