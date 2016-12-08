@@ -1,6 +1,6 @@
-angular.module('oSource', ['ui.router', 'satellizer', 'ngResource', 'toastr'])
-.config (['$stateProvider', '$urlRouterProvider', '$locationProvider', '$authProvider',
-function ($stateProvider, $urlRouterProvider, $locationProvider, $authProvider) {
+angular.module('oSource', ['ui.router', 'satellizer', 'ngResource', 'toastr', 'LocalStorageModule'])
+.config (['$stateProvider', '$urlRouterProvider', '$locationProvider', '$authProvider', 'localStorageServiceProvider',
+function ($stateProvider, $urlRouterProvider, $locationProvider, $authProvider, localStorageServiceProvider) {
 
     var skipIfLoggedIn = ['$q', '$auth', '$location', function($q, $auth, $location) {
         var deffered = $q.defer();
@@ -94,6 +94,9 @@ function ($stateProvider, $urlRouterProvider, $locationProvider, $authProvider) 
     });
     $urlRouterProvider.otherwise('/');
     $locationProvider.html5Mode(true);
+
+    localStorageServiceProvider
+        .setPrefix('userRepos');
 
 
 $authProvider.github({
