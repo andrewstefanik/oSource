@@ -1,4 +1,4 @@
-angular.module('oSource').controller('RepoSearchController', function(localStorageService, $scope) {
+angular.module('oSource').controller('RepoSearchController', ['localStorageService', function(localStorageService, $scope) {
     var userRepos = localStorageService.get('userData');
     this.repo = [];
     this.searchTerm = '';
@@ -21,4 +21,4 @@ angular.module('oSource').controller('RepoSearchController', function(localStora
         });
         return newArr;
     }
-});
+}]);
