@@ -5,7 +5,6 @@ angular.module('oSource').controller('AddController', ['$stateParams','$scope', 
     $scope.repo = $stateParams.name;
     console.log($scope.login);
     console.log($scope.repo);
-    
 
     $scope.search = function() {
         console.log ('********* HERE');
