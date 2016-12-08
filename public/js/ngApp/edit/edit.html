@@ -1,0 +1,238 @@
+<style>
+.formden_header h2, .formden_header p, form {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black
+}
+form button, form button:hover {
+    color: #ffffff !important;
+}
+.asteriskField{
+    color: red;
+}
+</style>
+
+<!-- <div class="bootstrap-iso"> -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <form id="addProject" method="post" action="/edit">
+                    <div class="form-group form-group-sm">
+                        <label class="control-label requiredField" for="repo_owner">
+                            Owner
+                        </label>
+                        <input class="form-control" id="repo_owner" name="repo_owner" type="text" ng-model="results.owner.login" readonly/>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label class="control-label requiredField" for="text">
+                            Repository Name
+                            <span class="asteriskField">
+                                *
+                            </span>
+                        </label>
+                        <input class="form-control" id="repo_name" name="repo_name" type="text" ng-model="results.name"/>
+                        <span class="help-block" id="hint_text">
+                            Place the name of your repo here
+                        </span>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label class="control-label requiredField" for="url">
+                            Repository Link
+                            <span class="asteriskField">
+                                *
+                            </span>
+                        </label>
+                        <input class="form-control" id="repo_link" name="repo_link" type="text" ng-model="results.html_url"/>
+                        <span class="help-block" id="hint_url">
+                            Link your repo here
+                        </span>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <label class="control-label requiredField" for="textarea">
+                            Description
+                            <span class="asteriskField">
+                                *
+                            </span>
+                        </label>
+                        <textarea class="form-control" cols="30" id="repo_description" name="repo_description" rows="8" ng-model="results.description"></textarea>
+                        <span class="help-block" id="hint_textarea">
+                            Give a brief description of your project and what type of assistance you're looking for.
+                        </span>
+                    </div>
+                    <div class="form-group" id="languages">
+                        <label class="control-label requiredField" for="checkbox">
+                            Languages
+                            <span class="asteriskField">
+                                *
+                            </span>
+                        </label>
+                        <div class=" ">
+                            <label class="checkbox-inline">
+                                <input name="languages" type="checkbox" value="JavaScript"/>
+                                JavaScript
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="clanguages" type="checkbox" value="Java"/>
+                                Java
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="languages" type="checkbox" value="Python"/>
+                                Python
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="languages" type="checkbox" value="Ruby"/>
+                                Ruby
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="languages" type="checkbox" value="PHP"/>
+                                PHP
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="languages" type="checkbox" value="C#"/>
+                                C#
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="languages" type="checkbox" value="C++"/>
+                                C++
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="languages" type="checkbox" value="Go"/>
+                                Go
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="languages" type="checkbox" value="HTML"/>
+                                HTML
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="languages" type="checkbox" value="CSS"/>
+                                CSS
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="languages" type="checkbox" value="Objective-C"/>
+                                Objective-C
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="languages" type="checkbox" value="Swift"/>
+                                Swift
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="languages" type="checkbox" value="Other*"/>
+                                Other*
+                            </label>
+                            <span class="help-block" id="hint_checkbox">
+                                Select which languages your project uses.
+
+                                *If other please list languages in description.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group" id="frameworks">
+                        <label class="control-label requiredField" for="framework">
+                            Frameworks
+                            <span class="asteriskField">
+                                *
+                            </span>
+                        </label>
+                        <div class=" ">
+                            <label class="checkbox-inline">
+                                <input name="framework" type="checkbox" value="ASP.NET"/>
+                                ASP.NET
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="framework" type="checkbox" value="AngularJS"/>
+                                AngularJS
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="framework" type="checkbox" value="Ruby on Rails"/>
+                                Ruby on Rails
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="framework" type="checkbox" value="Django"/>
+                                Django
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="framework" type="checkbox" value="Laravel"/>
+                                Laravel
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="framework" type="checkbox" value="Meteor"/>
+                                Meteor
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="framework" type="checkbox" value="Spring"/>
+                                Spring
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="framework" type="checkbox" value="Express"/>
+                                Express
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="framework" type="checkbox" value="CodeIgniter"/>
+                                CodeIgniter
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="framework" type="checkbox" value="ReactJS"/>
+                                ReactJS
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="framework" type="checkbox" value="Bootstrap"/>
+                                Bootsrap
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="framework" type="checkbox" value="Foundation"/>
+                                Foundation
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="framework" type="checkbox" value="Ember.JS"/>
+                                Ember.JS
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="framework" type="checkbox" value="Other*"/>
+                                Other*
+                            </label>
+                            <span class="help-block" id="hint_framework">
+                                Select which frameworks your project uses.
+
+                                *If other please list frameworks in description.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group" id="skill_level">
+                        <label class="control-label requiredField" for="checkbox">
+                            Skill Level
+                            <span class="asteriskField">
+                                *
+                            </span>
+                        </label>
+                        <div class=" ">
+                            <label class="checkbox-inline">
+                                <input name="skill_level" type="checkbox" value="Beginner"/>
+                                Beginner
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="skill_level" type="checkbox" value="Intermediate"/>
+                                Intermediate
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="skill_level" type="checkbox" value="Advanced"/>
+                                Advanced
+                            </label>
+                            <label class="checkbox-inline">
+                                <input name="skill_level" type="checkbox" value="Expert"/>
+                                Expert
+                            </label>
+                            <span class="help-block" id="hint_checkbox2">
+                                Select which skill level(s) your project requires.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input class="btn btn-primary btn-md" value="Submit" type="submit">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<!-- Changed some input -->

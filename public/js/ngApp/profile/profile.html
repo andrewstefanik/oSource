@@ -9,15 +9,6 @@
             <hr/>
         </li>
     </ul>
-    <div align="center">
-    <dir-pagination-controls
-        [max-size=""]
-        [direction-links="true"]
-        [boundary-links="true"]
-        [template-url="/lib/angularUtils-pagination/dirPagination.tpl.html"]
-        >
-        </dir-pagination-controls>
-    </div>
 </div>
 <div class="boxed-group">
     <p>Open-Source you contribute to</p>
@@ -33,7 +24,16 @@
     <p>Your Open-Source Projects <a href="/add"><button class="btn">New</button></a></p>
     <div class="boxed-inner" ng-repeat="repo in repos">
         <ul>
-            <li>{{repo.repo_name}} <a ui-sref="#">Edit</a></li>
+            <li>{{repo.repo_name}} <a ui-sref="Edit({userName:repo.repo_owner, name:repo.repo_name})">Edit</a></li>
         </ul>
     </div>
+</div>
+<div align="center">
+<dir-pagination-controls
+    [max-size=""]
+    [direction-links="true"]
+    [boundary-links="true"]
+    [template-url="/lib/angularUtils-pagination/dirPagination.tpl.html"]
+    >
+    </dir-pagination-controls>
 </div>
