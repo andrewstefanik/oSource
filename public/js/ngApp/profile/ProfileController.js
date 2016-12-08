@@ -4,6 +4,7 @@ angular.module('oSource')
 
     ProfileService.getProfile().then(function (response) {
         userName = response.data.userName;
+        localStorageService.set('username', userName);
         $scope.userName = userName;
         SearchService.user.get(
             {user: userName}, function (res) {
