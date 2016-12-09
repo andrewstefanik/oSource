@@ -15,6 +15,18 @@ router.get('/added/:user', (req, res) => {
     });
 });
 
+//get added repos with reponame
+router.get('/allRepos', (req, res) => {
+    console.log(req.params['repoName']);
+    Form.find({}, (err, doc) => {
+        if(err) console.error(err);
+        console.log(doc);
+        res.json({
+            data: doc
+        });
+    });
+});
+
 router.get('/:term/:lang/:sort', (req, res) => {
 
     var term = req.params['term'];
