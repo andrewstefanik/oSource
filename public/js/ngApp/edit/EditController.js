@@ -1,22 +1,11 @@
-angular.module('oSource').controller('EditController', ['$stateParams','$scope', '$auth', '$rootScope', 'SearchService', function($stateParams, $scope, $auth, $rootScope, SearchService) {
+angular.module('oSource').controller('EditController', ['$scope', '$stateParams', 'EditService', function($scope, $stateParams, EditService) {
+    $scope.title = 'Repos';
+    $scope.id = $stateParams.id;
 
-
-    $scope.login = $stateParams.userName;
-    $scope.repo = $stateParams.name;
-    console.log($scope.login);
-    console.log($scope.repo);
-
-    $scope.search = function() {
-        console.log ('********* HERE');
-        SearchService.repo.get({
-            login: $scope.login,
-            repo: $scope.repo
-        }, function(res) {
-            var results = JSON.parse(res.data);
-            $scope.results = results
-            console.log(results);
-        });
-    };
-
-    $scope.search()
+    EditService.getRepo($stateParams.id).then(function(res) {
+        console.log('Yeppers', res.data);
+        // var repoData = JSON.parse(res.data);
+        $scope.formData = res.data;
+        // console.log(repoData);
+    })
 }]);

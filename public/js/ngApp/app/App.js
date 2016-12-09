@@ -93,7 +93,7 @@ angular.module('oSource', ['ui.router', 'satellizer', 'ngResource', 'toastr', 'L
         }
     })
     .state('Edit', {
-        url: '/edit/:userName/:name',
+        url: '/edit/:id',
         templateUrl: '/js/ngApp/edit/edit.html',
         controller: 'EditController',
         data: {

@@ -43,6 +43,11 @@ app.use('/search', search);
 var profile = require('./routes/profileRoute');
 app.use('/profile', profile);
 
+//edit route
+var edit = require('./routes/editRoute');
+app.use('/edit', edit);
+
+
 // Start Application
 app.listen(port);
 
@@ -359,7 +364,8 @@ app.post('/auth/unlink', ensureAuthenticated, function(req, res) {
 
 // ===================== Add Route ========================= //
 app.post('/add', function (req, res) {
-    Form.create(req.body, function(error, result) {
+    var data = new Form(req.body);
+    data.save(function(error, result) {
         if(error != null) {
             console.log(error);
             throw error;

@@ -15,12 +15,12 @@ form button, form button:hover {
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6 col-sm-6 col-xs-12">
-                <form id="addProject" method="post" action="/edit">
+                <form id="addProject" method="put" action="edit/add">
                     <div class="form-group form-group-sm">
                         <label class="control-label requiredField" for="repo_owner">
                             Owner
                         </label>
-                        <input class="form-control" id="repo_owner" name="repo_owner" type="text" ng-model="results.owner.login" readonly/>
+                        <input class="form-control" id="repo_owner" name="repo_owner" type="text" ng-model="formData.repo_owner" readonly/>
                     </div>
                     <div class="form-group form-group-sm">
                         <label class="control-label requiredField" for="text">
@@ -29,7 +29,7 @@ form button, form button:hover {
                                 *
                             </span>
                         </label>
-                        <input class="form-control" id="repo_name" name="repo_name" type="text" ng-model="results.name"/>
+                        <input class="form-control" id="repo_name" name="repo_name" type="text" ng-model="formData.repo_name" readonly/>
                         <span class="help-block" id="hint_text">
                             Place the name of your repo here
                         </span>
@@ -41,7 +41,7 @@ form button, form button:hover {
                                 *
                             </span>
                         </label>
-                        <input class="form-control" id="repo_link" name="repo_link" type="text" ng-model="results.html_url"/>
+                        <input class="form-control" id="repo_link" name="repo_link" type="text" ng-model="formData.repo_link" readonly/>
                         <span class="help-block" id="hint_url">
                             Link your repo here
                         </span>
@@ -53,7 +53,7 @@ form button, form button:hover {
                                 *
                             </span>
                         </label>
-                        <textarea class="form-control" cols="30" id="repo_description" name="repo_description" rows="8" ng-model="results.description"></textarea>
+                        <textarea class="form-control" cols="30" id="repo_description" name="repo_description" rows="8" ng-model="formData.repo_description"></textarea>
                         <span class="help-block" id="hint_textarea">
                             Give a brief description of your project and what type of assistance you're looking for.
                         </span>
@@ -71,7 +71,7 @@ form button, form button:hover {
                                 JavaScript
                             </label>
                             <label class="checkbox-inline">
-                                <input name="clanguages" type="checkbox" value="Java"/>
+                                <input name="languages" type="checkbox" value="Java"/>
                                 Java
                             </label>
                             <label class="checkbox-inline">
