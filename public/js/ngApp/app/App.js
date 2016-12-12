@@ -91,6 +91,14 @@ angular.module('oSource', ['ui.router', 'satellizer', 'ngResource', 'toastr', 'L
         data: {
             loggedIn: true
         }
+    })
+    .state('Edit', {
+        url: '/edit/:id',
+        templateUrl: '/js/ngApp/edit/edit.html',
+        controller: 'EditController',
+        data: {
+            loggedIn: true
+        }
     });
     $urlRouterProvider.otherwise('/');
     $locationProvider.html5Mode(true);
