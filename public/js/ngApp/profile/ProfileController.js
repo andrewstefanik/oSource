@@ -1,5 +1,5 @@
 angular.module('oSource')
-.controller('ProfileController', ['$scope', '$rootScope', '$http', 'ProfileService', 'SearchService', 'localStorageService', function($scope, $http, $rootScope, ProfileService, SearchService, localStorageService) {
+.controller('ProfileController', ['$scope', '$rootScope', '$http', 'ProfileService', 'SearchService', 'localStorageService', function($scope, $rootScope, $http, ProfileService, SearchService, localStorageService) {
     $scope.title = 'Repos';
 
     ProfileService.getProfile().then(function (response) {
