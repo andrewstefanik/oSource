@@ -19,121 +19,29 @@ body {
 
 header {
     border: 1px dotted blue;
-
-    ul {
-
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        li {
-            float: left;
-            a {
-                color: black;
-                display: inline-block;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-                transition: 0.3s;
-                font-size: 17px;
-            }
-            a:hover {
-                background-color: lightgrey;
-                text-decoration: none;
-            }
-        }
-        .icon {
-            border: 1px dotted black;
-            display: none;
-        }
-    }
 }
 
-// When the screen is less than 680px, hide all the list items except for the first one.
-@media screen and (max-width:680px) {
-    header {
-        ul {
-            li:not(:first-child) {
-                display: none;
-            }
-            // Display the icon to open and close the navbar
-            .icon {
-                float: left;
-                display: inline-block;
-            }
-        }
-    }
-}
+.login {
+    border: 1px dotted yellow;
 
-// The 'responsive' class is added to the navbar with Javascript when the icon is clicked
-@media screen and (max-width:680px) {
-    header {
-        ul.navigation.responsive {
-            position: relative;
-            .icon {
-                position: absolute;
-                right: 0;
-                top: 0;
-            }
-            li {
-                float: none;
-                display: inline;
-                a {
-                    display: block;
-                    text-align: left;
-                }
-            }
-        }
-    }
-}
-.loginPage {
-    h2 {
-        padding: 10px;
-        text-align: center;
-    }
-    max-width: @max-page-width;
-    width: 40%;
-    margin: auto;
-    .jumbotron {
-        margin-top: 30px;
-        padding-top: 10px;
-    }
+
     button {
-        width: 50%;
-        position: relative;
-        left: 50%;
-        margin-right: -50%;
-        margin-top: 4%;
-        transform: translate(-50%, -50%);
-    }
-}
-.signupPage {
-    h2 {
-        padding: 10px;
-        text-align: center;
-    }
-    max-width: @max-page-width;
-    margin: auto;
-    width: 40%;
-    .jumbotron {
-        margin-top: 30px;
-        padding-top: 10px;
-    }
-    button {
-        width: 50%;
-        position: relative;
-        left: 50%;
-        margin-right: -50%;
-        margin-top: 4%;
-        transform: translate(-50%, -50%);
-    }
-}
+        // border: 1px dotted green;
 
-footer {
-    position: absolute;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    padding: 1rem;
-    text-align: center;
+        display: block;
+        margin: auto;
+        width: 25%;
+
+    }
+
+    .github {
+        // border: 1px dotted red;
+        color: white;
+        background-color: #444;
+    }
+
+    .linkedin {
+        color: white;
+        background-color: #007bb6;
+    }
 }
