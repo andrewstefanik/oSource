@@ -1,39 +1,32 @@
-<header>
-    <nav>
-        <div ng-controller="NavbarController" class="navbar navbar-default">
-            <div class="header-inner">
-                <ul class="nav navbar-nav">
-                    <li class="icon">
-                        <a href="javascript:void(0);" onclick="myFunction()">
-                            &#9776;
-                        </a>
-                    </li>
-                    <li ng-if="!isAuthenticated()"><a href="/">Login</a></li>
-                    <li ng-if="isAuthenticated()"><a href="/profile">Profile</a></li>
-                    <li ng-if="isAuthenticated()"><a ui-sref="Search">Search Github</a></li>
-                </ul>
-                <ul ng-if="isAuthenticated()" class="nav navbar-nav pull-right">
-                    <li class="header-nav-item dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-plus"></span><span class="caret"></span></a>
-                        <ul class="dropdown-menu dropdown-menu-right">
-                            <li><a href="/add">New project</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img height="20px" width="20px" ng-src="{{user.picture || 'https://placehold.it/100x100'}}"><span class="caret"></span></a>
-                        <ul class="dropdown-menu dropdown-menu-right">
-                            <li>Singed in as <br/>{{user.displayName}}</li>
-                            <hr/>
-                            <li><a href="/profile">Your profile</a></li>
-                            <li><a href="#">Help (inactive)</a></li>
-                            <hr/>
-                            <li><a href="/settings">Settings</a></li>
-                            <li><a href="/logout">Signout</a></li>
-                        </ul>
-                    </li>
-                    <!-- <li><a href="/logout">Logout</a></li> -->
-                </ul>
-            </div>
+<div class="header">
+    <div ng-controller="NavbarController" class="navbar navbar-default">
+        <div class="header-inner">
+            <ul class="nav navbar-nav">
+                <li ng-if="!isAuthenticated()"><a href="/">Login</a></li>
+                <li ng-if="isAuthenticated()"><a href="/profile">Profile</a></li>
+		        <li ng-if="isAuthenticated()"><a ui-sref="Search">Search Github</a></li>
+            </ul>
+            <ul ng-if="isAuthenticated()" class="nav navbar-nav pull-right">
+                <li class="header-nav-item dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-plus"></span><span class="caret"></span></a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="/add">New project</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img height="20px" width="20px" ng-src="{{user.picture || 'https://placehold.it/100x100'}}"><span class="caret"></span></a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li>Singed in as <br/>{{user.displayName}}</li>
+                        <hr/>
+                        <li><a href="/profile">Your profile</a></li>
+                        <li><a href="#">Help (inactive)</a></li>
+                        <hr/>
+                        <li><a href="/settings">Settings</a></li>
+                        <li><a href="/logout">Signout</a></li>
+                    </ul>
+                </li>
+                <!-- <li><a href="/logout">Logout</a></li> -->
+            </ul>
         </div>
-    </nav>
-</header>
+    </div>
+</div>
