@@ -42,7 +42,7 @@ angular.module('oSource').controller('RepoSearchController', ['localStorageServi
                 if(partWord == charsToMatch) {
                     newArr.push(el);
                 }
-            });
+            })
             return newArr;
         };
 }]);
