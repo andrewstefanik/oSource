@@ -5,7 +5,7 @@
   "main": "app.js",
   "engines": {
     "node": "4.6.1"
-    },
+  },
   "scripts": {
     "postinstall": "bower install",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -14,7 +14,7 @@
   "author": "Michael Miller, Andrew Stefanik, Craig Rufener",
   "license": "MIT",
   "dependencies": {
-    "angular": "^1.5.9",
+    "angular": "^1.6.0",
     "angular-utils-pagination": "^0.11.1",
     "body-parser": "^1.15.2",
     "bootstrap": "^3.3.7",
