@@ -14,4 +14,20 @@ router.get('/:id', function(req, res) {
     });
 });
 
+router.post('/:id', function(req, res) {
+
+    Form.findById(req.params.id).then(function(form) {
+        form = req.body;
+
+        form.save().then(function(updatedForm) {
+            res.json(updatedForm);
+            console.log('You are saving: ', updatedForm);
+        }).catch(function(err) {
+            res.status(400).json(err);
+        });
+    }).catch(function(){
+        res.sendStatus(404);
+    });
+});
+
 module.exports = router;
