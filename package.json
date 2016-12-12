@@ -5,8 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "app.js",
-    "postinstall": "bower install"
+    "start": "app.js"
   },
   "author": "Michael Miller, Andrew Stefanik, Craig Rufener",
   "license": "MIT",
