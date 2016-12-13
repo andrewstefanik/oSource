@@ -63,9 +63,9 @@ angular.module('oSource', ['ui.router', 'satellizer', 'ngResource', 'toastr', 'L
             loggedIn: true
         }
     })
-    .state('Search.details', {
-        url: '/details/:reponame',
-        templateUrl: '/js/ngApp/search/result.html',
+    .state('detail', {
+        url: '/detail/:repo',
+        templateUrl: '/js/ngApp/detail/detail.html',
         controller: 'DetailController'
     })
     .state('Logout', {
