@@ -27,6 +27,19 @@ router.get('/allRepos', (req, res) => {
     });
 });
 
+//get single repo
+router.get('/repo/:repo/:user', (req, res) => {
+    var repoName = req.params['repo'];
+    var user = req.params['user'];
+    console.log(repoName, user);
+    Form.find({repo_owner: user, repo_name: repoName}, (err, doc) => {
+        if(err) console.error(err);
+        
+        console.log(doc);
+        res.json(doc);
+    });
+});
+
 router.get('/:term/:lang/:sort', (req, res) => {
 
     var term = req.params['term'];
