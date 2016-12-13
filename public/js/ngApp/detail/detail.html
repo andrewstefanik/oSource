@@ -1,0 +1,30 @@
+<div ng-controller="DetailController as ctrl">
+<md-content><h2>Details for {{ctrl.repoName}}</h2></md-content>
+<md-content layout-padding layout="column" layout-align="center start">
+    <md-list-item>
+        <p><strong>Owner: </strong>{{ctrl.repo.repo_owner}}</p>
+    </md-list-item>
+    <md-list-item>
+        <p><strong>Repo Name: </strong>{{ctrl.repo.repo_name}}</p>
+    </md-list-item>
+    <md-list-item>
+        <p><strong>Description: </strong>{{ctrl.repo.repo_description}}</p>
+    </md-list-item>
+    <md-list-item>
+        <p><strong>Languages: </strong>{{ctrl.repo.languages}}</p>
+    </md-list-item>
+    <md-list-item>
+        <p><strong>Framework: </strong>{{ctrl.repo.framework}}</p>
+    </md-list-item>
+    <md-list-item>
+        <p><strong>Skill Level: </strong>{{ctrl.repo.skill_level}}</p>
+    </md-list-item>
+    <md-list-item>
+        <p><strong>Link: </strong><a href="{{ctrl.repo.repo_link}}"><span class="fa fa-external-link" aria-hidden="true"></span>{{ctrl.repo.repo_link}}</a></p>
+    </md-list-item>
+</md-content>
+<md-content layout-padding layout="row" layout-align="center center">
+    <md-button class="md-raised" aria-label="Edit" ui-sref="Edit({id: ctrl.repo._id})"> Edit </md-button>
+    <md-button class="md-raised" aria-label="Profile" ui-sref="Profile"> Profile </md-button>
+</md-content>
+</div>
