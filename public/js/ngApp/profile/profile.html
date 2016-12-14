@@ -8,27 +8,30 @@
             </dl>
         </div>
     </div>
-    <h4>{{userName}}'s {{title}}</h4>
-    <div align="center">
-        <dir-pagination-controls
-        [max-size=""]
-        [direction-links="true"]
-        [boundary-links="true"]
-        [template-url="/lib/angularUtils-pagination/dirPagination.tpl.html"]>
-    </dir-pagination-controls>
-</div>
-<br/>
-<div class="container">
-    <div class="repos" ng-repeat="repo in repoList | limitTo: 1 track by $index">
-        <ul>
-            <li dir-paginate="repo in repoList | itemsPerPage: 6">
-                Name: <a href="{{repo.html_url}}"><input style="border: none;" value="{{repo.name}}" disabled></a><br/>
-                Language: {{repo.language}}<br/>
-                Description: {{repo.description}}<br/>
-                <a ui-sref="Add({userName:repo.owner.login, name:repo.name})"><button class="btn">Add to oSource</button></a>
-            </li>
-        </ul>
-        <br/>
+    <div class="noMobile">
+        <h4>{{userName}}'s {{title}}</h4>
+        <div align="center">
+            <dir-pagination-controls
+            [max-size=""]
+            [direction-links="true"]
+            [boundary-links="true"]
+            [template-url="/lib/angularUtils-pagination/dirPagination.tpl.html"]>
+        </dir-pagination-controls>
+    </div>
+    <br/>
+    <div class="container">
+        <div class="repos" ng-repeat="repo in repoList | limitTo: 1 track by $index">
+            <ul>
+                <li dir-paginate="repo in repoList | itemsPerPage: 6">
+                    Name: <a href="{{repo.html_url}}"><input style="border: none;" value="{{repo.name}}" disabled></a><br/>
+                    Language: {{repo.language}}<br/>
+                    Description: {{repo.description}}<br/>
+                    <a ui-sref="Add({userName:repo.owner.login, name:repo.name})"><button class="btn">Add to oSource</button></a>
+                    <hr/>
+                </li>
+            </ul>
+            <br/>
+        </div>
     </div>
 </div>
 </div>
