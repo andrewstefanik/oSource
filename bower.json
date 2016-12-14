@@ -29,9 +29,10 @@
     "angular-toastr": "^2.1.1",
     "angular-local-storage": "^0.5.2",
     "angular-material": "^1.1.1",
-    "angularUtils-pagination": "angular-utils-pagination#^0.11.1"
-},
-"resolutions": {
-  "angular": "1.6.0"
-}
+    "angularUtils-pagination": "angular-utils-pagination#^0.11.1",
+    "angular-route": "^1.6.0"
+  },
+  "resolutions": {
+    "angular": "1.6.0"
+  }
 }

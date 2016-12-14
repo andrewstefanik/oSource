@@ -1,4 +1,4 @@
-angular.module('oSource', ['ui.router', 'satellizer', 'ngResource', 'toastr', 'LocalStorageModule', 'angularUtils.directives.dirPagination', 'ngMaterial'])
+angular.module('oSource', ['ui.router', 'ngRoute', 'satellizer', 'ngResource', 'toastr', 'LocalStorageModule', 'angularUtils.directives.dirPagination', 'ngMaterial'])
  .config (['$stateProvider', '$urlRouterProvider', '$locationProvider', '$authProvider', 'localStorageServiceProvider',
  function ($stateProvider, $urlRouterProvider, $locationProvider, $authProvider, localStorageServiceProvider) {
 
