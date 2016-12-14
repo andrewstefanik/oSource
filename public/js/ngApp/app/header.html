@@ -12,8 +12,9 @@
             <li ng-if="!isAuthenticated()"><a href="/">Login</a></li>
             <li ng-if="isAuthenticated()"><a href="/dashboard">Dashboard</a></li>
             <li ng-if="isAuthenticated()"><a ui-sref="Search">Search Github</a></li>
+            <li ng-if="isAuthenticated()" class="onlyMobile"><a href="/logout">Logout</a></li>
         </ul>
-        <ul ng-if="isAuthenticated()" class="nav navbar-nav pull-right">
+        <ul ng-if="isAuthenticated()" class="nav navbar-nav pull-right noMobile">
             <li class="header-nav-item dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-plus"></span><span class="caret"></span></a>
                 <ul class="dropdown-menu dropdown-menu-right">
