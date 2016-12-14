@@ -31,26 +31,8 @@
 <body>
     <div class="container">
         <div ng-include="'js/ngApp/app/header.html'"></div>
-        <div ng-include="'js/ngApp/app/searching.html'"></div>
         <ui-view></ui-view>
     </div>
-    <script type='text/javascript'>
-
-(function()
-{
-    if( window.localStorage )
-    {
-        if( !localStorage.getItem( 'firstLoad' ) )
-        {
-            localStorage[ 'firstLoad' ] = true;
-            window.location.reload();
-        }
-        else
-        localStorage.removeItem( 'firstLoad' );
-    }
-})();
-
-    </script>
     <script src="/lib/jquery/dist/jquery.min.js"></script>
     <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/lib/angular/angular.min.js"></script>
