@@ -2,9 +2,11 @@ angular.module('oSource').controller('SearchController', [
     '$scope',
     '$http',
     '$state',
+    '$window',
     'SearchService',
     'ProfileService',
-    function($scope, $http, $state, SearchService, ProfileService) {
+    function($scope, $http, $state, $window, SearchService, ProfileService) {
+
 
         $scope.lang = 'javascript';
         $scope.sort = 'stars';

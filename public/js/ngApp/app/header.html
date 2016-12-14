@@ -11,7 +11,7 @@
         <ul class="nav navbar-nav">
             <li ng-if="!isAuthenticated()"><a href="/">Home</a></li>
             <li ng-if="!isAuthenticated()"><a href="/login">Login</a></li>
-            <li ng-if="isAuthenticated()"><a href="/profile">Profile</a></li>
+            <li ng-if="isAuthenticated()"><a href="/dashboard">Dashboard</a></li>
             <li ng-if="isAuthenticated()"><a ui-sref="Search">Search Github</a></li>
         </ul>
         <ul ng-if="isAuthenticated()" class="nav navbar-nav pull-right">
@@ -26,7 +26,7 @@
                 <ul class="dropdown-menu dropdown-menu-right">
                     <li>Signed in as <br/>{{user.displayName}}</li>
                     <hr/>
-                    <li><a href="/profile">Your profile</a></li>
+                    <li><a href="/dashboard">My Dashboard</a></li>
                     <li><a href="#">Help (inactive)</a></li>
                     <hr/>
                     <li><a href="/settings">Settings</a></li>
