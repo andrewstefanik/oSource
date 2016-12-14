@@ -1,10 +1,16 @@
-angular.module('oSource').controller('AddController', ['$stateParams','$scope', '$auth', '$rootScope', 'SearchService', function($stateParams, $scope, $auth, $rootScope, SearchService) {
+angular.module('oSource').controller('AddController', ['$stateParams','$scope', '$auth', '$rootScope', 'SearchService', 'ProfileService', function($stateParams, $scope, $auth, $rootScope, SearchService, ProfileService) {
 
+
+    ProfileService.getProfile().then(function(response) {
+        var userName = response.data.userName;
+        $scope.userName = userName;
+        console.log(userName)
+    })
 
     $scope.login = $stateParams.userName;
     $scope.repo = $stateParams.name;
-    console.log($scope.login);
-    console.log($scope.repo);
+    // console.log($scope.login);
+    // console.log($scope.repo);
 
     $scope.search = function() {
         console.log ('********* HERE');
