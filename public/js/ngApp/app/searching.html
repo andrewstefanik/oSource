@@ -1,7 +1,7 @@
 <div ng-controller="RepoSearchController as vm" layout="column">
         <section layout="row" flex>
             <md-sidenav md-component-id="repoSearch">
-                <md-content layout-padding layout="column" flex>
+                <md-content layout-padding layout="column" layout-align="center start" flex>
                     <form>
                         <md-input-container >
                            <label for="searchOsource">Search your repos on <strong>oSource</strong> </label>
@@ -12,7 +12,7 @@
                       
                           <md-list-item ng-repeat="match in vm.repoMatch" class="md-3-line">
                               <div class="md-list-item-text">
-                                  <a href ui-sref="detail({repo: match.name})"><h4>Repo name: {{match.name}}</h4></a>
+                                  <div style="font-weight: bolder; text-decoration: none; margin-top: 10px"><a href ui-sref="detail({repo: match.name})"><h3>Repo name: {{match.name}}</h3></a></div>
                                   <p><strong>Description</strong>: {{match.description}}</p>
                                   
                                   <p><strong>Languages</strong>: {{match.language}}</p>
@@ -25,7 +25,7 @@
                     </md-list>
                 </md-content>
             </md-sidenav>
-            <md-content layout-padding flex>
+            <md-content layout-margin flex>
                 <md-button aria-label="Search oSource" class="md-raised" ng-click="vm.open()">
                    Search oSource
                 </md-button>
