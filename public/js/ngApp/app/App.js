@@ -47,14 +47,14 @@ angular.module('oSource', ['ui.router', 'satellizer', 'ngResource', 'toastr', 'L
             loggedIn: true
         }
     })
-    // .state('Addnew', {
-    //     url: '/add/:userName/:name',
-    //     templateUrl: 'js/ngApp/add/add.html',
-    //     controller: 'AddController',
-    //     data: {
-    //         loggedIn: true
-    //     }
-    // })
+    .state('AddNew', {
+        url: '/add',
+        templateUrl: 'js/ngApp/add/add.html',
+        controller: 'AddController',
+        data: {
+            loggedIn: true
+        }
+    })
     .state('Search', {
         url: '/search',
         templateUrl: '/js/ngApp/search/search.html',
