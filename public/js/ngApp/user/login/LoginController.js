@@ -4,7 +4,7 @@ angular.module('oSource')
     $scope.authenticate = function(provider) {
         $auth.authenticate(provider).then(function(response) {
             toastr.success('You have successfully signed in with ' + provider + '!');
-            $location.path('/profile');
+            $location.path('/dashboard');
         }).catch(function(error) {
             if (error.message) {
                 // Satellizer promise reject error.
