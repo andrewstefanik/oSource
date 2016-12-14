@@ -15,7 +15,7 @@ form button, form button:hover {
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6 col-sm-6 col-xs-12">
-                <form id="addProject" method="POST" action="edit/:id">
+                <form id="addProject" ng-submit="update()">
                     <div class="form-group form-group-sm">
                         <input class="form-control" id="repo_id" name="repo_id" type="hidden" ng-model="formData._id" readonly/>
                     </div>
