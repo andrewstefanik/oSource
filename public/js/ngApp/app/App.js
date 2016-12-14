@@ -23,8 +23,15 @@ angular.module('oSource', ['ui.router', 'ngRoute', 'satellizer', 'ngResource', '
     }];
 
     $stateProvider
+    .state('Landing', {
+        url:'/',
+        templateUrl: '/js/ngApp/landing/landing.html',
+        data: {
+            loggedIn: false
+        }
+    })
     .state('Login', {
-        url: '/',
+        url: '/login',
         templateUrl: '/js/ngApp/user/login/login.html',
         controller: 'LoginController',
         data: {
@@ -64,7 +71,7 @@ angular.module('oSource', ['ui.router', 'ngRoute', 'satellizer', 'ngResource', '
         }
     })
     .state('detail', {
-        url: '/detail/:repo',
+        url: '/detail/:id',
         templateUrl: '/js/ngApp/detail/detail.html',
         controller: 'DetailController'
     })
