@@ -9,27 +9,27 @@
                         </md-input-container>
                     </form>
                     <md-list ng-if="vm.repoMatch.length">
-                      
+
                           <md-list-item ng-repeat="match in vm.repoMatch" class="md-3-line">
                               <div class="md-list-item-text">
                                   <div class="repo-select"><a href ui-sref="detail({repo: match.name})"><h3>Repo name: {{match.name}}</h3></a></div>
                                   <p><strong>Description</strong>: {{match.description}}</p>
-                                  
+
                                   <p><strong>Languages</strong>: {{match.language}}</p>
-                                  
+
                                   <p><strong>Skill Level</strong>: {{match.skill}}</p>
                                   <p><strong>Owner</strong>: {{match.owner}}</p>
                               </div>
                           </md-list-item>
-                      
+
                     </md-list>
                 </md-content>
             </md-sidenav>
-            <md-content layout-margin flex>
+            <!-- <md-content layout-margin flex>
                 <md-button aria-label="Search oSource" class="md-raised" ng-click="vm.open()">
                     <md-icon md-font-icon="fa fa-search" class="fa fa-search"></md-icon>
                    Search oSource
                 </md-button>
-            </md-content>
+            </md-content> -->
         </section>
 </div>
