@@ -9,7 +9,8 @@
         </div>
         <div class="navbar-collapse">
         <ul class="nav navbar-nav">
-            <li ng-if="!isAuthenticated()"><a href="/">Login</a></li>
+            <li ng-if="!isAuthenticated()"><a href="/">Home</a></li>
+            <li ng-if="!isAuthenticated()"><a href="/login">Login</a></li>
             <li ng-if="isAuthenticated()"><a href="/dashboard">Dashboard</a></li>
             <li ng-if="isAuthenticated()"><a ui-sref="Search">Search Github</a></li>
         </ul>
