@@ -15,24 +15,22 @@
     <link rel="stylesheet" href="/css/style.less" type="text/less">
     <!-- <link rel="stylesheet" href="/css/style.css" type="text/css"> -->
     <script>
-        less = {
-            env: "development",
-            async: false,
-            fileAsync: false,
-            poll: 1000,
-            functions: {},
-            dumpLineNumbers: "comments",
-            relativeUrls: false,
-            rootpath: ":/a.com/"
-        };
+    less = {
+        env: "development",
+        async: false,
+        fileAsync: false,
+        poll: 1000,
+        functions: {},
+        dumpLineNumbers: "comments",
+        relativeUrls: false,
+        rootpath: ":/a.com/"
+    };
     </script>
     <script src="/lib/less/dist/less.min.js"></script>
 </head>
 <body>
     <div>
         <div ng-include="'js/ngApp/app/header.html'"></div>
-        <div ng-include="'js/ngApp/app/searching.html'"></div>
-
         <ui-view></ui-view>
         <div ng-include="'js/ngApp/app/footer.html'"></div>
     </div>
