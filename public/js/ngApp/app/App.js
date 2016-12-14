@@ -64,7 +64,7 @@ angular.module('oSource', ['ui.router', 'satellizer', 'ngResource', 'toastr', 'L
         }
     })
     .state('detail', {
-        url: '/detail/:repo',
+        url: '/detail/:id',
         templateUrl: '/js/ngApp/detail/detail.html',
         controller: 'DetailController'
     })
