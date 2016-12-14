@@ -18,4 +18,6 @@ angular.module('oSource')
             // console.log(repoData);
         })
     })
+
+    ProfileService.getProfile();
 }]);

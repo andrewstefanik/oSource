@@ -19,6 +19,23 @@ body {
 // Login Page =============================
 
 @media only screen and (max-width: 500px) {
+    header {
+        .pull-right {
+            // border: 1px dotted blue;
+            float: left !important;
+        }
+    }
+
+    .profile {
+        .noMobile {
+            //For if we want to hide things on mobile
+
+            ul {
+                list-style-type: none;
+            }
+        }
+    }
+
     .login {
         // border: 1px dotted yellow;
 
@@ -58,6 +75,12 @@ body {
 }
 
 @media only screen and (min-width: 501px) {
+
+    .profile {
+        ul {
+            list-style: none;
+        }
+    }
 
     .login {
 
