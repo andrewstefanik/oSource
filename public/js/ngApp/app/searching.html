@@ -12,7 +12,7 @@
                       
                           <md-list-item ng-repeat="match in vm.repoMatch" class="md-3-line">
                               <div class="md-list-item-text">
-                                  <div style="font-weight: bolder; text-decoration: none; margin-top: 10px"><a href ui-sref="detail({repo: match.name})"><h3>Repo name: {{match.name}}</h3></a></div>
+                                  <div class="repo-select"><a href ui-sref="detail({repo: match.name})"><h3>Repo name: {{match.name}}</h3></a></div>
                                   <p><strong>Description</strong>: {{match.description}}</p>
                                   
                                   <p><strong>Languages</strong>: {{match.language}}</p>
@@ -27,6 +27,7 @@
             </md-sidenav>
             <md-content layout-margin flex>
                 <md-button aria-label="Search oSource" class="md-raised" ng-click="vm.open()">
+                    <md-icon md-font-icon="fa fa-search" class="fa fa-search"></md-icon>
                    Search oSource
                 </md-button>
             </md-content>
