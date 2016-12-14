@@ -1,9 +1,9 @@
 angular.module('oSource')
-.controller('ProfileController', ['$scope', '$rootScope', '$http', '$route', 'ProfileService', 'SearchService', 'localStorageService', function($scope, $rootScope, $http, $route, ProfileService, SearchService, localStorageService) {
+.controller('ProfileController', ['$scope', '$rootScope', '$http', '$window', 'ProfileService', 'SearchService', 'localStorageService', function($scope, $rootScope, $http, $window, ProfileService, SearchService, localStorageService) {
     $scope.title = 'Repos';
 
 
-    $route.reload();
+    $window.location.reload();
 
     ProfileService.getProfile().then(function (response) {
     	var userName = response.data.userName;
