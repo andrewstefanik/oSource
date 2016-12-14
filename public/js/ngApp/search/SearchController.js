@@ -7,7 +7,6 @@ angular.module('oSource').controller('SearchController', [
     'ProfileService',
     function($scope, $http, $state, $window, SearchService, ProfileService) {
 
-        $window.location.reload();
 
         $scope.lang = 'javascript';
         $scope.sort = 'stars';

@@ -1,4 +1,4 @@
-angular.module('oSource').controller('NavbarController', ['$scope', '$auth', 'ProfileService', function($scope, $auth, ProfileService) {
+angular.module('oSource').controller('NavbarController', ['$scope', '$auth', '$route', 'ProfileService', function($scope, $auth, $route, ProfileService) {
     $scope.isAuthenticated = function() {
         return $auth.isAuthenticated();
     };
@@ -13,7 +13,8 @@ angular.module('oSource').controller('NavbarController', ['$scope', '$auth', 'Pr
         });
     };
 
-    
+
 
     $scope.getProfile()
+    $route.reload();
 }]);
