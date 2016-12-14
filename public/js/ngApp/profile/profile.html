@@ -9,14 +9,6 @@
         </div>
     </div>
     <h4>{{userName}}'s {{title}}</h4>
-    <div align="center">
-        <dir-pagination-controls
-        [max-size=""]
-        [direction-links="true"]
-        [boundary-links="true"]
-        [template-url="/lib/angularUtils-pagination/dirPagination.tpl.html"]>
-    </dir-pagination-controls>
-</div>
 <br/>
 <div class="container">
     <div class="repos" ng-repeat="repo in repoList | limitTo: 1 track by $index">
@@ -30,5 +22,13 @@
         </ul>
         <br/>
     </div>
+</div>
+<div align="center">
+    <dir-pagination-controls
+    [max-size=""]
+    [direction-links="true"]
+    [boundary-links="true"]
+    [template-url="/lib/angularUtils-pagination/dirPagination.tpl.html"]>
+</dir-pagination-controls>
 </div>
 </div>
