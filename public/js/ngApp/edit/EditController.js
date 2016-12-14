@@ -12,7 +12,7 @@ angular.module('oSource').controller('EditController', ['$scope', '$stateParams'
             method: 'POST',
             data: $scope.formData
         }).then((res) => {
-            $state.go('detail');
+            $state.go('detail', {repo: $scope.formData.repo_name});
         }, (err) => {
             console.log(err);
         });
