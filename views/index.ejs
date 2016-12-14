@@ -8,7 +8,7 @@
     <title>oSource</title>
     <link rel="stylesheet" href="/lib/normalize-css/normalize.css" type="text/css">
     <script src="https://use.fontawesome.com/8488f7a21b.js"></script>
-    <!-- <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/lib/angular-toastr/dist/angular-toastr.css">
     <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="/lib/angular-material/angular-material.min.css">
@@ -29,9 +29,10 @@
     <script src="/lib/less/dist/less.min.js"></script>
 </head>
 <body>
-    <div class="container">
+    <div>
         <div ng-include="'js/ngApp/app/header.html'"></div>
         <ui-view></ui-view>
+        <div ng-include="'js/ngApp/app/footer.html'"></div>
     </div>
     <script src="/lib/jquery/dist/jquery.min.js"></script>
     <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -45,6 +46,7 @@
     <script src="/lib/angular-toastr/dist/angular-toastr.tpls.js"></script>
     <script src="\lib\angular-local-storage\dist\angular-local-storage.min.js"></script>
     <script src="/lib/angularUtils-pagination/dirPagination.js"></script>
+    <script src="/lib/angular-route/angular-route.min.js"></script>
     <!--============ App scripts ========== -->
     <script src="/js/ngApp/app/App.js"></script>
     <script src="/js/ngApp/app/HeaderController.js"></script>

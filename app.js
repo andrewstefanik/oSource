@@ -39,7 +39,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 var search = require('./routes/searchRoute');
 app.use('/search', search);
 
-// profile route
+// dashboard route
 var profile = require('./routes/profileRoute');
 app.use('/profile', profile);
 
@@ -360,7 +360,6 @@ app.post('/auth/unlink', ensureAuthenticated, function(req, res) {
     });
   });
 });
-// ===================== Profile =========================== //
 
 // ===================== Add Route ========================= //
 app.post('/add', function (req, res) {
@@ -370,7 +369,7 @@ app.post('/add', function (req, res) {
             console.log(error);
             throw error;
         }
-        res.redirect('/profile');
+        res.redirect('/dashboard');
     });
 });
 

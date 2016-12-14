@@ -1,5 +1,5 @@
 <header>
-    <nav ng-controller="NavbarController" class="navbar navbar-default" role="navigation">
+    <nav ng-controller="NavbarController" class="navbar navbar-default">
         <div class="navbar-header">
             <button class="navbar-toggle pull-left" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="icon-bar"></span>
@@ -11,7 +11,7 @@
         <ul class="nav navbar-nav">
             <li ng-if="!isAuthenticated()"><a href="/">Home</a></li>
             <li ng-if="!isAuthenticated()"><a href="/login">Login</a></li>
-            <li ng-if="isAuthenticated()"><a href="/profile">Profile</a></li>
+            <li ng-if="isAuthenticated()"><a href="/dashboard">Dashboard</a></li>
             <li ng-if="isAuthenticated()"><a ui-sref="Search">Search Github</a></li>
         </ul>
         <ul ng-if="isAuthenticated()" class="nav navbar-nav pull-right">
@@ -26,8 +26,7 @@
                 <ul class="dropdown-menu dropdown-menu-right">
                     <li>Signed in as <br/>{{user.displayName}}</li>
                     <hr/>
-                    <li><a href="/profile">Your profile</a></li>
-                    <li><a href="#">Help (inactive)</a></li>
+                    <li><a href="/dashboard">My Dashboard</a></li>
                     <hr/>
                     <li><a href="/settings">Settings</a></li>
                     <li><a href="/logout">Signout</a></li>

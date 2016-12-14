@@ -1,11 +1,11 @@
-angular.module('oSource', ['ui.router', 'satellizer', 'ngResource', 'toastr', 'LocalStorageModule', 'angularUtils.directives.dirPagination', 'ngMaterial'])
+angular.module('oSource', ['ui.router', 'ngRoute', 'satellizer', 'ngResource', 'toastr', 'LocalStorageModule', 'angularUtils.directives.dirPagination', 'ngMaterial'])
  .config (['$stateProvider', '$urlRouterProvider', '$locationProvider', '$authProvider', 'localStorageServiceProvider',
  function ($stateProvider, $urlRouterProvider, $locationProvider, $authProvider, localStorageServiceProvider) {
 
     var skipIfLoggedIn = ['$q', '$auth', '$location', function($q, $auth, $location) {
         var deffered = $q.defer();
         if ($auth.isAuthenticated()) {
-            $location.path('/profile');
+            $location.path('/dashboard');
         } else {
             deferred.resolve();
         }
@@ -80,13 +80,10 @@ angular.module('oSource', ['ui.router', 'satellizer', 'ngResource', 'toastr', 'L
         template: null,
         controller: 'LogoutController'
     })
-    .state('Profile', {
-        url: '/profile',
+    .state('Dashboard', {
+        url: '/dashboard',
         templateUrl: '/js/ngApp/profile/profile.html',
         controller: 'ProfileController',
-        // resolve: {
-        //     loginRequired: loginRequired
-        // },
         data: {
             loggedIn: true
         }
