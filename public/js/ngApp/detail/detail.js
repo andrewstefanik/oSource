@@ -1,9 +1,8 @@
-angular.module('oSource').controller('DetailController', function(localStorageService, $stateParams,$http) {
-    var user = localStorageService.get('username');
-    this.repoName = $stateParams['repo'];
+angular.module('oSource').controller('DetailController', function($stateParams,$http) {
+    this.id = $stateParams['id'];
     this.repo = null;
-    $http.get('search/repo/'+ this.repoName + '/' + user).then((res) => {
-        this.repo = res.data[0];
+    $http.get('search/detail/'+ this.id).then((res) => {
+        this.repo = res.data;
     }, (err) => {
         console.log(err);
     });

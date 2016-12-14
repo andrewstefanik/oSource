@@ -27,12 +27,10 @@ router.get('/allRepos', (req, res) => {
     });
 });
 
-//get single repo
-router.get('/repo/:repo/:user', (req, res) => {
-    var repoName = req.params['repo'];
-    var user = req.params['user'];
-    console.log(repoName, user);
-    Form.find({repo_owner: user, repo_name: repoName}, (err, doc) => {
+//get single repo by id
+router.get('/detail/:id', (req, res) => {
+    var id = req.params['id'];
+    Form.findById(id, (err, doc) => {
         if(err) console.error(err);
         
         console.log(doc);
