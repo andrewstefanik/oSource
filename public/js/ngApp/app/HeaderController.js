@@ -16,5 +16,4 @@ angular.module('oSource').controller('NavbarController', ['$scope', '$auth', '$r
 
 
     $scope.getProfile()
-    $route.reload();
 }]);

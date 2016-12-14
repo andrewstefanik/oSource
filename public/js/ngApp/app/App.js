@@ -5,7 +5,7 @@ angular.module('oSource', ['ui.router', 'ngRoute', 'satellizer', 'ngResource', '
     var skipIfLoggedIn = ['$q', '$auth', '$location', function($q, $auth, $location) {
         var deffered = $q.defer();
         if ($auth.isAuthenticated()) {
-            $location.path('/profile');
+            $location.path('/dashboard');
         } else {
             deferred.resolve();
         }
@@ -73,13 +73,10 @@ angular.module('oSource', ['ui.router', 'ngRoute', 'satellizer', 'ngResource', '
         template: null,
         controller: 'LogoutController'
     })
-    .state('Profile', {
-        url: '/profile',
+    .state('Dashboard', {
+        url: '/dashboard',
         templateUrl: '/js/ngApp/profile/profile.html',
         controller: 'ProfileController',
-        // resolve: {
-        //     loginRequired: loginRequired
-        // },
         data: {
             loggedIn: true
         }
