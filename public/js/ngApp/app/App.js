@@ -23,8 +23,15 @@ angular.module('oSource', ['ui.router', 'satellizer', 'ngResource', 'toastr', 'L
     }];
 
     $stateProvider
+    .state('Landing', {
+        url:'/',
+        templateUrl: '/js/ngApp/landing/landing.html',
+        data: {
+            loggedIn: false
+        }
+    })
     .state('Login', {
-        url: '/',
+        url: '/login',
         templateUrl: '/js/ngApp/user/login/login.html',
         controller: 'LoginController',
         data: {
