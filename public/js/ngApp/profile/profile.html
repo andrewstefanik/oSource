@@ -4,7 +4,7 @@
     <div class="dashButtons">
         <button class="btn search" ng-controller="RepoSearchController as vm" ng-click="vm.open()"><i class="fa fa-search fa-2x" aria-hidden="true"></i><br/> Projects </button>
         <button class="btn add noMobile" ng-click="goToAdd()"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i><br/> Projects </button>
-        <button class="btn partner"><i class="fa fa-search fa-2x" aria-hidden="true"></i><br/> Partners </button>
+        <button class="btn partner" ng-click="goToCommunity()"><i class="fa fa-search fa-2x" aria-hidden="true"></i><br/> Community </button>
     </div>
 
 
@@ -17,7 +17,7 @@
             </dl>
         </div>
     </div>
-    <h4>{{userName}}'s {{title}}</h4>
+    <!-- <h4>{{userName}}'s {{title}}</h4> --><h4>Your Github Repos</h4>
     <br/>
     <div class="container">
         <div class="repos" ng-repeat="repo in repoList | limitTo: 1 track by $index">

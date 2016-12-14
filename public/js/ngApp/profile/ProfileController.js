@@ -6,6 +6,10 @@ angular.module('oSource')
         $location.path('/add');
     }
 
+    $scope.gotToCommunity = function() {
+        $location.path('/community');
+    }
+
     ProfileService.getProfile().then(function (response) {
     	var userName = response.data.userName;
         localStorageService.set('username', userName);
