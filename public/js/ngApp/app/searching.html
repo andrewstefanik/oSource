@@ -12,7 +12,7 @@
                     <form>
                         <md-input-container >
                            <label for="searchOsource">Search Projects</label>
-                           <input class="" id="searchOsource" type="text" ng-model="vm.searchTerm" ng-model-options="{debounce: 1000}" ng-change="vm.findMatches()" />
+                           <input class="" id="searchOsource" type="text" ng-model="vm.searchTerm" ng-model-options="{debounce: 500}" ng-change="vm.findMatches()" />
                         </md-input-container>
                         <div>{{vm.message}}</div>
                     </form>
