@@ -275,13 +275,16 @@ body {
 
         .oSource {
 
-            .boxed-inner{
-                text-align: center;
-                column-count: 3;
-                column-width: 30%;
-                column-fill: auto;
-                break-inside: avoid-column;
-            }
+            // .boxed-inner{
+            //
+            //
+            //         text-align: center;
+            //         column-count: 2;
+            //         column-width: 40%;
+            //         column-fill: auto;
+            //         break-inside: avoid-column;
+            //
+            // }
 
 
             table {
@@ -293,7 +296,17 @@ body {
         .container {
             column-count: 3;
             column-width: 30%;
+            column-fill: balance;
+            break-inside: avoid-column;
 
+        }
+
+        .container2 {
+            text-align: center;
+            column-count: 4;
+            column-width: 45%;
+            column-fill: balance;
+            break-inside: avoid-column;
         }
 
     }
