@@ -1,34 +1,44 @@
 @max-page-width: 1200px;
+@import url('https://fonts.googleapis.com/css?family=Marck+Script');
+
 
 html {
     height: 100%;
     box-sizing: border-box;
 }
-*,
+* {
+    margin: 0;
+}
 *:before,
 *:after {
     box-sizing: inherit;
 }
 body {
+    height: 100%;
     position: relative;
     margin: auto;
-    padding-bottom: 6rem;
+    padding-bottom: 2em;
+    margin-bottom: 2em;
     min-height: 100%;
     direction: ltr;
     overflow: auto;
 }
 
+.push {
+    height: 2em;
+}
+
 .footer {
-    position: fixed;
+    border-top: 1px solid black;
+    margin: auto;
     bottom: 0;
     width: 100%;
-    /* Set the fixed height of the footer here */
-    height: 20px;
-    background-color: #e7e7e7;
-    border-top: 1px solid black;
     padding-left: 5px;
     padding-right: 5px;
+    height: 2em;
 }
+
+
 
 
 // Login Page =============================
@@ -120,6 +130,10 @@ body {
     }
 }
 
+//======================================================//
+//=======================Desktop =======================//
+//======================================================//
+
 @media only screen and (min-width: 768px) {
     header {
 
@@ -144,6 +158,32 @@ body {
 
 
     .profile {
+
+        .repos {
+
+            input {
+                text-align: center;
+            }
+
+            li {
+                text-align: center;
+                background-color: lightgrey;
+                border-radius: 10px;
+                padding: 6px;
+                margin: 4px;
+
+                break-inside: avoid-column;
+
+                button {
+                    color: white;
+                    background-color: #10375e;
+                }
+            }
+
+            input {
+                background-color: transparent;
+            }
+        }
 
         .dashButtons {
             // border: 1px dotted black;
@@ -182,6 +222,22 @@ body {
         ul {
             list-style: none;
         }
+
+        .oSource {
+            text-align: center;
+
+            table {
+                text-align: left;
+
+            }
+        }
+
+        .container {
+            column-count: 3;
+            column-width: 30%;
+
+        }
+
     }
 
     .login {
@@ -228,27 +284,28 @@ body {
         }
     }
 
-    .profile {
+    .community {
+        text-align: center;
 
-        .oSource {
-            text-align: center;
-            -moz-column-count: 2;
-            -moz-column-gap: 5px;
-            -webkit-column-count: 2;
-            -webkit-column-gap: 5px;
-            column-count: 2;
-            column-gap: 5px;
-
-            table {
-                text-align: left;
-
-            }
+        input {
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 5px;
+            width: 65%;
+            margin-bottom: 20px;
         }
 
-        .container {
-            column-count: 3;
+        table {
+            margin-left: auto;
+            margin-right: auto;
+            align-items: center;
+            text-align: left;
+            width: 85%;
+
         }
     }
+
+
 
 }
 
@@ -260,6 +317,7 @@ body {
     text-align: center;
     display: inline-block;
     height: 480px;
+    font-size: 18px;
     /*margin-left: 25px;*/
 }
 
@@ -268,6 +326,8 @@ body {
     text-align: center;
     display: inline-block;
     height: 480px;
+    font-size: 18px;
+    color: white;
 }
 #tips {
     list-style-type: none;
@@ -276,6 +336,11 @@ body {
     background-color: #444;
     color: white;
     font-size: 50px;
+    height: 75px;
+}
+#logo {
+    font-family: 'Marck Script', cursive;
+    font-size: 60px;
 }
 // #dashboardUser {
 //     font-size: 25px;

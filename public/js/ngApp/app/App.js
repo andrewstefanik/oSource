@@ -103,6 +103,21 @@ angular.module('oSource', ['ui.router', 'ngRoute', 'satellizer', 'ngResource', '
         data: {
             loggedIn: true
         }
+    })
+    .state('Community', {
+        url: '/community',
+        templateUrl: '/js/ngApp/community/community.html',
+        controller: 'CommunityController',
+        data: {
+            loggedIn: true
+        }
+    })
+    .state('About', {
+        url: '/about',
+        templateUrl: '/js/ngApp/about/about.html',
+        data: {
+            loggedIn: true
+        }
     });
     $urlRouterProvider.otherwise('/');
     $locationProvider.html5Mode(true);
