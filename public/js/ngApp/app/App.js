@@ -112,6 +112,14 @@ angular.module('oSource', ['ui.router', 'ngRoute', 'satellizer', 'ngResource', '
             loggedIn: true
         }
     })
+    .state('submitForm', {
+        url: '/submitForm/:username',
+        templateUrl: '/js/ngApp/submits/submitForm.html',
+        controller: 'FormSubmitController',
+        data: {
+            loggedIn: true
+        }
+    })
     .state('Community', {
         url: '/community',
         templateUrl: '/js/ngApp/community/community.html',
