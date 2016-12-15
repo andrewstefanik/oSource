@@ -2,7 +2,6 @@
     .md-list-item-text {
         margin-top: 10px;
         border-top: 1px solid black;
-        text-overflow: ellipsis;
     }
 </style>
 <div ng-controller="RepoSearchController as vm" layout="column">
@@ -20,7 +19,7 @@
 
                           <md-list-item ng-repeat="match in vm.repoMatch" class="md-3-line">
                               <div class="md-list-item-text">
-                                  <div class="repo-select"><a href ui-sref="detail({id: match.id})"><h3>Repo name: {{match.name}}</h3></a></div>
+                                  <a href ui-sref="detail({id: match.id})"><h3>Repo name: {{match.name}}</h3></a>
                                   <p><strong>Description</strong>: {{match.description}}</p>
 
                                   <p><strong>Languages</strong>: {{match.language}}</p>
