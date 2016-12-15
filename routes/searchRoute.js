@@ -1,29 +1,35 @@
 var express = require('express');
 var request = require('request');
 var Form = require('../models/addForm');
+var User = require('../models/user');
 var router = express.Router();
+
+//get info about users
+router.get('/userinfo', (req, res) => {
+    User.find({}, (err, doc) => {
+        if(err) console.error(err);
+        console.log(`
+            USER INFO RETURNED FROM DATABASE:
+            ${doc}
+        `);
+        res.json(doc);
+    });
+});
 
 //get added repos with username
 router.get('/added/:user', (req, res) => {
     console.log(req.params['user']);
-    Form.find({repo_owner: req.params['user']}, (err, doc) => {
+    Form.find({repo_owner: req.params.user}, (err, doc) => {
         if(err) console.error(err);
-        console.log(doc);
-        res.json({
-            data: doc
-        });
+        res.json(doc);
     });
 });
 
-//get added repos with reponame
+//get all repos added to oSource
 router.get('/allRepos', (req, res) => {
-    console.log(req.params['repoName']);
     Form.find({}, (err, doc) => {
         if(err) console.error(err);
-        console.log(doc);
-        res.json({
-            data: doc
-        });
+        res.json(doc);
     });
 });
 
@@ -32,8 +38,6 @@ router.get('/detail/:id', (req, res) => {
     var id = req.params['id'];
     Form.findById(id, (err, doc) => {
         if(err) console.error(err);
-        
-        console.log(doc);
         res.json(doc);
     });
 });

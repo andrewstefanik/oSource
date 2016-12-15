@@ -103,6 +103,14 @@ angular.module('oSource', ['ui.router', 'ngRoute', 'satellizer', 'ngResource', '
         data: {
             loggedIn: true
         }
+    })
+    .state('Contribute', {
+        url: '/contribute',
+        templateUrl: '/js/ngApp/submits/contribute.html',
+        controller: 'SubmitController as $ctrl',
+        data: {
+            loggedIn: true
+        }
     });
     $urlRouterProvider.otherwise('/');
     $locationProvider.html5Mode(true);
