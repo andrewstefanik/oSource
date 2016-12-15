@@ -1,5 +1,7 @@
 @max-page-width: 1200px;
 @import url('https://fonts.googleapis.com/css?family=Marck+Script');
+@import url('https://fonts.googleapis.com/css?family=Bungee');
+
 
 
 html {
@@ -18,10 +20,9 @@ body {
     position: relative;
     margin: auto;
     padding-bottom: 2em;
-    margin-bottom: 2em;
     min-height: 100%;
     direction: ltr;
-    overflow: auto;
+    // overflow: auto;
 }
 .wrapper {
     min-height: 100%;
@@ -33,6 +34,9 @@ body {
 
 .footer {
     border-top: 1px solid black;
+    background-color: #2c3e50;;
+    color: white;
+
     margin: auto;
     bottom: 0;
     width: 100%;
@@ -270,7 +274,18 @@ body {
         }
 
         .oSource {
-            text-align: center;
+
+            // .boxed-inner{
+            //
+            //
+            //         text-align: center;
+            //         column-count: 2;
+            //         column-width: 40%;
+            //         column-fill: auto;
+            //         break-inside: avoid-column;
+            //
+            // }
+
 
             table {
                 text-align: left;
@@ -281,7 +296,17 @@ body {
         .container {
             column-count: 3;
             column-width: 30%;
+            column-fill: balance;
+            break-inside: avoid-column;
 
+        }
+
+        .container2 {
+            text-align: center;
+            column-count: 4;
+            column-width: 45%;
+            column-fill: balance;
+            break-inside: avoid-column;
         }
 
     }
@@ -367,7 +392,7 @@ body {
     color: white;
     text-align: center;
     display: inline-block;
-    height: 480px;
+    height: 50%;
     font-size: 18px;
     /*margin-left: 25px;*/
 }
@@ -376,7 +401,7 @@ body {
     background-color: #18bc9c;
     text-align: center;
     display: inline-block;
-    height: 480px;
+    height: 50%;
     font-size: 18px;
     color: white;
 }
@@ -393,28 +418,28 @@ body {
     font-family: 'Marck Script', cursive;
     font-size: 60px;
 }
-// #dashboardUser {
-//     font-size: 25px;
-//     text-align: center;
-// }
-// #yourProjects {
-//     -moz-column-count: 2;
-//     -moz-column-gap: 5px;
-//     -webkit-column-count: 2;
-//     -webkit-column-gap: 5px;
-//     column-count: 2;
-//     column-gap: 5px;
-//
-//     h4 {
-//         text-align: center;
-//     }
-// }
-// #reposList {
-//     -moz-column-count: 3;
-//     -moz-column-gap: 5px;
-//     -webkit-column-count: 3;
-//     -webkit-column-gap: 5px;
-//     column-count: 3;
-//     column-gap: 5px;
-// }
-// }
+#aboutContainer {
+    width: 75%;
+}
+#howToContainer {
+    width: 75%;
+}
+#tagLine {
+    font-family: 'Bungee', cursive;
+    font-size: 30px;
+    font-weight: bolder;
+}
+#aboutUsContainer {
+    background-color: #18bc9c;
+    text-align: center;
+    display: inline-block;
+    height: 100%;
+    font-size: 18px;
+    color: white;
+    padding-top: 5px;
+}
+#aboutStatement {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
