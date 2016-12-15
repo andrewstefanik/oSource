@@ -1,9 +1,31 @@
-angular.module('oSource').controller('SubmitController', function(SearchService, $scope, $http) {
-    $scope.reason = 'reason is to contribute';
+angular.module('oSource').controller('SubmitController', function(SearchService, $scope, $http, $state) {
+    this.reason = 'reason is to contribute';
+    this.users;
+    this.msgToSend = '';
+    this.selectedUser;
+    this.isSelected = false;
+    $http({
+        url: '/search/userInfo',
+        method: 'GET'
+    }).then(
+        (res) => {
+            this.users = res.data;
+        }
+    );
+    this.selectUser = ((username) => {
+        $state.go('submitForm', {username: username});
+    });
+})
+.controller('FormSubmitController', function($http, $state, $stateParams) {
 
-    SearchService.userInfo.get({},((res) => {console.log(res.data); $scope.users = res.data}, (err) => {console.log(err);}));
-    //console.log($scope.users);
-    $scope.send = (() => {
-        console.log($scope.msgToSend);
+    this.repo;
+    $http.get('/search/added/' + $stateParams.username).then(
+        (res) => {
+            this.user = res.data;
+        }
+    );
+
+    this.send = (() => {
+        console.log(this.msgToSend);
     });
 });
