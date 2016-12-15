@@ -7,9 +7,9 @@
         <button class="btn partner" ng-click="goToCommunity()"><i class="fa fa-search fa-2x" aria-hidden="true"></i><br/> Community </button>
     </div>
 
-
     <div class="oSource">
         <h4>Your Open-Source Projects</h4>
+
         <div class="boxed-inner" ng-repeat="repo in repos">
             <dl>
                 <dt>{{repo.repo_name}} <a ui-sref="Edit({id:repo._id})">Edit</a></dt>
@@ -19,7 +19,7 @@
     </div>
     <!-- <h4>{{userName}}'s {{title}}</h4> --><h4>Your Github Repos</h4>
     <br/>
-    <div class="container">
+    <div id="reposList"class="container">
         <div class="repos" ng-repeat="repo in repoList | limitTo: 1 track by $index">
             <ul dir-paginate="repo in repoList | itemsPerPage: 6">
                 <li>
