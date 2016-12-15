@@ -1,14 +1,13 @@
 angular.module('oSource').controller('RepoSearchController', ['localStorageService', 'SearchService', '$mdSidenav', function(localStorageService, SearchService, $mdSidenav) {
-    var userRepos = localStorageService.get('added').data;
     var osourceRepos = localStorageService.get('allAdded').data;
-    
-    console.log(osourceRepos);
-
+    this.message = '';
+    SearchService.allAdded;
     this.repo = [];
     this.searchTerm = '';
 
     osourceRepos.forEach((repo) => {
             this.repo.push({
+                id: repo._id,
                 name: repo.repo_name,
                 description: repo.repo_description,
                 language: repo.languages,
@@ -18,21 +17,13 @@ angular.module('oSource').controller('RepoSearchController', ['localStorageServi
             return this.repo;
     });
 
-    userRepos.forEach((repo) => {
-            this.repo.push({
-                name: repo.repo_name,
-                description: repo.repo_description,
-                language: repo.languages,
-                skill: repo.skill_level
-            });
-            return this.repo;
-    });
     this.open = (() => {
         $mdSidenav('repoSearch').toggle();
     });
     this.findMatches = (() => {
         console.log('finding matches......');
         this.repoMatch = compareCharacter(this.repo, this.searchTerm);
+        this.message = `Showing ${this.repoMatch.length} of ${this.repo.length} items`;
     });
     function compareCharacter(arrayToSearch, charsToMatch) {
         var newArr = [];
@@ -42,7 +33,7 @@ angular.module('oSource').controller('RepoSearchController', ['localStorageServi
                 if(partWord == charsToMatch) {
                     newArr.push(el);
                 }
-            })
+            });
             return newArr;
         };
 }]);
