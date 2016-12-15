@@ -47,6 +47,10 @@ app.use('/profile', profile);
 var edit = require('./routes/editRoute');
 app.use('/edit', edit);
 
+//community route
+var community = require('./routes/communityRoute');
+app.use('/community', community);
+
 
 // Start Application
 app.listen(port);
@@ -131,7 +135,7 @@ app.put('/api/me', ensureAuthenticated, function(req, res) {
 
 app.post('/auth/linkedin', function(req, res) {
   var accessTokenUrl = 'https://www.linkedin.com/uas/oauth2/accessToken';
-  var peopleApiUrl = 'https://api.linkedin.com/v1/people/~:(id,first-name,last-name,email-address,picture-url)';
+  var peopleApiUrl = 'https://api.linkedin.com/v1/people/~:(id,first-name,last-name,email-address,picture-url,public-profile-url)';
   var params = {
     code: req.body.code,
     client_id: req.body.clientId,
@@ -166,6 +170,7 @@ app.post('/auth/linkedin', function(req, res) {
               return res.status(400).send({ message: 'User not found' });
             }
             user.linkedin = profile.id;
+            user.linkedProfile = profile.publicProfileUrl;
             user.picture = user.picture || profile.pictureUrl;
             user.displayName = user.displayName || profile.firstName + ' ' + profile.lastName;
             user.save(function() {
@@ -182,6 +187,7 @@ app.post('/auth/linkedin', function(req, res) {
           }
           var user = new User();
           user.linkedin = profile.id;
+          user.linkedProfile = profile.publicProfileUrl;
           user.picture = profile.pictureUrl;
           user.displayName = profile.firstName + ' ' + profile.lastName;
           user.save(function() {

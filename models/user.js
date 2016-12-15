@@ -6,7 +6,8 @@ var userSchema = new mongoose.Schema({
   picture: String,
   bitbucket: String,
   github: String,
-  linkedin: String
+  linkedin: String,
+  linkedProfile: String
 });
 
 module.exports = mongoose.model('User', userSchema);

@@ -4,29 +4,38 @@ html {
     height: 100%;
     box-sizing: border-box;
 }
-*,
+* {
+    margin: 0;
+}
 *:before,
 *:after {
     box-sizing: inherit;
 }
 body {
+    height: 100%;
     position: relative;
     margin: auto;
-    padding-bottom: 6rem;
+    padding-bottom: 2em;
+    margin-bottom: 2em;
     min-height: 100%;
     direction: ltr;
 }
 
+.push {
+    height: 2em;
+}
+
 .footer {
-    position: absolute;
+    border-top: 1px solid black;
+    margin: auto;
     bottom: 0;
     width: 100%;
-    /* Set the fixed height of the footer here */
-    height: 30px;
-    background-color: #e7e7e7;
-    border-top: 1px solid black;
-    padding: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 2em;
 }
+
+
 
 
 // Login Page =============================
@@ -118,6 +127,10 @@ body {
     }
 }
 
+//======================================================//
+//=======================Desktop =======================//
+//======================================================//
+
 @media only screen and (min-width: 768px) {
     header {
 
@@ -142,6 +155,32 @@ body {
 
 
     .profile {
+
+        .repos {
+
+            input {
+                text-align: center;
+            }
+
+            li {
+                text-align: center;
+                background-color: lightgrey;
+                border-radius: 10px;
+                padding: 6px;
+                margin: 4px;
+
+                break-inside: avoid-column;
+
+                button {
+                    color: white;
+                    background-color: #10375e;
+                }
+            }
+
+            input {
+                background-color: transparent;
+            }
+        }
 
         .dashButtons {
             // border: 1px dotted black;
@@ -180,6 +219,22 @@ body {
         ul {
             list-style: none;
         }
+
+        .oSource {
+            text-align: center;
+
+            table {
+                text-align: left;
+
+            }
+        }
+
+        .container {
+            column-count: 3;
+            column-width: 30%;
+
+        }
+
     }
 
     .login {
@@ -226,21 +281,28 @@ body {
         }
     }
 
-    .profile {
+    .community {
+        text-align: center;
 
-        .oSource {
-            text-align: center;
-
-            table {
-                text-align: left;
-
-            }
+        input {
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 5px;
+            width: 65%;
+            margin-bottom: 20px;
         }
 
-        .container {
-            column-count: 3;
+        table {
+            margin-left: auto;
+            margin-right: auto;
+            align-items: center;
+            text-align: left;
+            width: 85%;
+
         }
     }
+
+
 
 }
 

@@ -1,0 +1,20 @@
+<div class="community">
+    <h1>Welcome to the oSource Community</h1>
+    <p> To build a community around oSource and help foster growth and communication, we have all our user's social media information here for you to reach out if needed.</p>
+
+    <input type="text" ng-model="searchText" placeholder="&#xf002; Search" style="font-family:Arial, FontAwesome">
+    <table class="table-striped table-responsive">
+        <thead>
+            <th>Name</th>
+            <th>Github</th>
+            <th>LinkedIn</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="result in results | filter:searchText">
+                <td>{{result.displayName}}</td>
+                <td><a href="http://github.com/{{result.userName}}">{{result.userName}}</a></td>
+                <td><a href="{{result.linkedProfile}}">{{result.linkedProfile}}</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
