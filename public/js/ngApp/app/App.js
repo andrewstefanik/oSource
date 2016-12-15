@@ -111,6 +111,13 @@ angular.module('oSource', ['ui.router', 'ngRoute', 'satellizer', 'ngResource', '
         data: {
             loggedIn: true
         }
+    })
+    .state('About', {
+        url: '/about',
+        templateUrl: '/js/ngApp/about/about.html',
+        data: {
+            loggedIn: true
+        }
     });
     $urlRouterProvider.otherwise('/');
     $locationProvider.html5Mode(true);

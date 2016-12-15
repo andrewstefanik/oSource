@@ -21,16 +21,14 @@
     <br/>
     <div class="container">
         <div class="repos" ng-repeat="repo in repoList | limitTo: 1 track by $index">
-            <ul>
-                <li dir-paginate="repo in repoList | itemsPerPage: 6">
-                    Name: <a href="{{repo.html_url}}"><input style="border: none;" value="{{repo.name}}" disabled></a><br/>
+            <ul dir-paginate="repo in repoList | itemsPerPage: 6">
+                <li>
+                    <a href="{{repo.html_url}}"><input style="border: none;" value="{{repo.name}}" disabled></a><br/>
                     Language: {{repo.language}}<br/>
                     Description: {{repo.description}}<br/>
                     <a ui-sref="Add({userName:repo.owner.login, name:repo.name})"><button class="btn">Add to oSource</button></a>
-                    <hr/>
                 </li>
             </ul>
-            <br/>
         </div>
     </div>
     <div align="center">
