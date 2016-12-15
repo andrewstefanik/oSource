@@ -31,9 +31,12 @@
 <body>
     <div>
         <div ng-include="'js/ngApp/app/header.html'"></div>
-        <ui-view></ui-view>
-        <!-- <div ng-include="'js/ngApp/app/footer.html'"></div> -->
+        <ui-view>
+        </ui-view>
+
     </div>
+    <div ng-include="'js/ngApp/app/footer.html'"></div>
+
     <script src="/lib/jquery/dist/jquery.min.js"></script>
     <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/lib/angular/angular.min.js"></script>
@@ -64,6 +67,5 @@
     <script src="/js/ngApp/edit/editService.js"></script>
     <script src="/js/ngApp/detail/detail.js"></script>
     <!-- <script src="/js/ngApp/add/AddController.js"></script> -->
-
 </body>
 </html>

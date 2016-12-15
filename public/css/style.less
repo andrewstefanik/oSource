@@ -15,17 +15,19 @@ body {
     padding-bottom: 6rem;
     min-height: 100%;
     direction: ltr;
+    overflow: auto;
 }
 
 .footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     /* Set the fixed height of the footer here */
-    height: 30px;
+    height: 20px;
     background-color: #e7e7e7;
     border-top: 1px solid black;
-    padding: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 
@@ -230,6 +232,12 @@ body {
 
         .oSource {
             text-align: center;
+            -moz-column-count: 2;
+            -moz-column-gap: 5px;
+            -webkit-column-count: 2;
+            -webkit-column-gap: 5px;
+            column-count: 2;
+            column-gap: 5px;
 
             table {
                 text-align: left;
@@ -251,7 +259,7 @@ body {
     color: white;
     text-align: center;
     display: inline-block;
-    height: 400px;
+    height: 480px;
     /*margin-left: 25px;*/
 }
 
@@ -259,8 +267,38 @@ body {
     background-color: #6699CC;
     text-align: center;
     display: inline-block;
-    height: 400px;
+    height: 480px;
 }
 #tips {
     list-style-type: none;
 }
+#welcome {
+    background-color: #444;
+    color: white;
+    font-size: 50px;
+}
+// #dashboardUser {
+//     font-size: 25px;
+//     text-align: center;
+// }
+// #yourProjects {
+//     -moz-column-count: 2;
+//     -moz-column-gap: 5px;
+//     -webkit-column-count: 2;
+//     -webkit-column-gap: 5px;
+//     column-count: 2;
+//     column-gap: 5px;
+//
+//     h4 {
+//         text-align: center;
+//     }
+// }
+// #reposList {
+//     -moz-column-count: 3;
+//     -moz-column-gap: 5px;
+//     -webkit-column-count: 3;
+//     -webkit-column-gap: 5px;
+//     column-count: 3;
+//     column-gap: 5px;
+// }
+// }

@@ -7,9 +7,9 @@
         <button class="btn partner"><i class="fa fa-search fa-2x" aria-hidden="true"></i><br/> Partners </button>
     </div>
 
-
-    <div class="oSource">
+    <div id="yourProjects" class="oSource">
         <h4>Your Open-Source Projects</h4>
+        <br/>
         <div class="boxed-inner" ng-repeat="repo in repos">
             <dl>
                 <dt>{{repo.repo_name}} <a ui-sref="Edit({id:repo._id})" class="noMobile">Edit</a></dt>
@@ -17,20 +17,19 @@
             </dl>
         </div>
     </div>
-    <h4>{{userName}}'s {{title}}</h4>
+</div>
+    <div id="dashboardUser">{{userName}}'s {{title}}</div>
     <br/>
-    <div class="container">
+    <div id="reposList"class="container">
         <div class="repos" ng-repeat="repo in repoList | limitTo: 1 track by $index">
             <ul>
                 <li dir-paginate="repo in repoList | itemsPerPage: 6">
-                    Name: <a href="{{repo.html_url}}"><input style="border: none;" value="{{repo.name}}" disabled></a><br/>
-                    Language: {{repo.language}}<br/>
-                    Description: {{repo.description}}<br/>
-                    <a ui-sref="Add({userName:repo.owner.login, name:repo.name})" class="noMobile"><button class="btn">Add to oSource</button></a>
-                    <hr/>
+                    <strong>Name:</strong> <a href="{{repo.html_url}}"><input style="border: none;" value="{{repo.name}}" disabled></a><br/>
+                    <strong>Language:</strong> {{repo.language}}<br/>
+                    <strong>Description:</strong> {{repo.description}}<br/>
+                    <a ui-sref="Add({userName:repo.owner.login, name:repo.name})" class="noMobile"><button class="btn btn-primary">Add to oSource</button></a><br/>
                 </li>
             </ul>
-            <br/>
         </div>
     </div>
     <div align="center">
