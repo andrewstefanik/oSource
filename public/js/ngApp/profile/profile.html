@@ -12,7 +12,7 @@
         <h4>Your Open-Source Projects</h4>
         <div class="boxed-inner" ng-repeat="repo in repos">
             <dl>
-                <dt>{{repo.repo_name}} <a ui-sref="Edit({id:repo._id})" class="noMobile">Edit</a></dt>
+                <dt>{{repo.repo_name}} <a ui-sref="Edit({id:repo._id})">Edit</a></dt>
                 <dd> {{repo.languages}}</dd>
             </dl>
         </div>
@@ -26,7 +26,7 @@
                     Name: <a href="{{repo.html_url}}"><input style="border: none;" value="{{repo.name}}" disabled></a><br/>
                     Language: {{repo.language}}<br/>
                     Description: {{repo.description}}<br/>
-                    <a ui-sref="Add({userName:repo.owner.login, name:repo.name})" class="noMobile"><button class="btn">Add to oSource</button></a>
+                    <a ui-sref="Add({userName:repo.owner.login, name:repo.name})"><button class="btn">Add to oSource</button></a>
                     <hr/>
                 </li>
             </ul>

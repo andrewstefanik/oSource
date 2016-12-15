@@ -28,12 +28,13 @@
     </script>
     <script src="/lib/less/dist/less.min.js"></script>
 </head>
-<body>
-    <div>
+<body> 
+    <div class="wrapper">
         <div ng-include="'js/ngApp/app/header.html'"></div>
         <ui-view></ui-view>
-        <!-- <div ng-include="'js/ngApp/app/footer.html'"></div> -->
+        <div class="push"></div>
     </div>
+    <div class="footer" ng-include="'/js/ngApp/app/footer.html'"></div>
     <script src="/lib/jquery/dist/jquery.min.js"></script>
     <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/lib/angular/angular.min.js"></script>

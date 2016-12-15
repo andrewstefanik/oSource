@@ -6,7 +6,7 @@ angular.module('oSource')
         $location.path('/add');
     }
 
-    $scope.gotToCommunity = function() {
+    $scope.goToCommunity = function() {
         $location.path('/community');
     }
 
