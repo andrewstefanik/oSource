@@ -1,36 +1,11 @@
-<div>
-    <h1>{{reason}}</h1>
-    <div class="row">
-        <div col-md-4 col-xs-6>
-            <h2>List of Users</h2>
-            <div class="user-list">
-                <div ng-repeat="(_id, userName) in users">
-                    <a ng-click="$ctrl.selectedUser(_id)">{{userName}}</a>
-                </div>
-            </div>
-        </div>
-        <div col-md-8 col-xs-6>
-            <h2>{{reason}}</h2>
-            <form ng-submit="send()">
-                <div class="send-to">
-                    <h3>Message will be sent to: <span>{{user.userName}}</span></h3>
-                    <p>Email: {{user.displayName</p>
-                </div>
-                <label for="projectName" class="form-group">Select Project:
-                    <select name="project" id="projectName" class="form-control form-control-lg">
-                        <option ng-repeat="repo in repos" value="{{repo.repo_name}}"></option>
-                    </select>
-                </label>
-                <div class="form-group">
-                    <label for="message"></label>
-                    <textarea id="message" class="form-control form-control-lg"
-                    ng-model="msgToSend" />
-                </div>
-                <button class="btn btn-lg btn-primary pull-xs-right"
-                    type="submit">
-                    Send
-                </button>
-            </form>
+<div ng-controller="SubmitController as $ctrl">
+    <h1>Contact oweners to contribute or give feedback</h1>
+
+
+    <h2>List of Users</h2>
+    <div class="user-list">
+        <div ng-repeat="user in $ctrl.users">
+            <md-button ng-click="$ctrl.selectUser(user.userName)">{{user.userName}}</md-button>
         </div>
     </div>
 </div>
