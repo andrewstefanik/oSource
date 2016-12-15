@@ -7,6 +7,7 @@ angular.module('oSource')
         var repo = $resource('/search/:login/:repo');
         var added = $resource('/search/added/:user');
         var all = $resource('/search/allRepos');
+        var userInfo = $resource('/search/userInfo');
 
         var addedFn = added.get({user: localStorageService.get('username')}, (res) => {
                     localStorageService.set('added', res);
@@ -21,6 +22,7 @@ angular.module('oSource')
             repo: repo,
             added: added,
             addedFn: addedFn,
-            all: all
+            all: all,
+            userInfo: userInfo
         }
     }]);

@@ -1,0 +1,23 @@
+<div ng-controller="FormSubmitController as $ctrl">
+    <h1>Connect</h1>
+    <form ng-submit="$ctrl.send()">
+        <div class="send-to">
+            <h3>Message will be sent to: <span>{{$ctrl.user[0].repo_owner}}</span></h3>
+            <p>Email: {{user.repo_name}}</p>
+        </div>
+        <label for="projectName" class="form-group">Select Project:
+            <select name="project" id="projectName" class="form-control form-control-lg">
+                <option ng-repeat="repo in $ctrl.user" value="{{repo.repo_name}}" ng-model="$ctrl.repo">{{repo.repo_name}}</option>
+            </select>
+        </label>
+        <div class="form-group">
+            <label for="message"></label>
+            <textarea id="message" class="form-control form-control-lg"
+            ng-model="$ctrl.msgToSend" />
+        </div>
+        <button class="btn btn-lg btn-primary pull-xs-right"
+            type="submit">
+            Send
+        </button>
+    </form>
+</div>
