@@ -1,32 +1,47 @@
 @max-page-width: 1200px;
+@import url('https://fonts.googleapis.com/css?family=Marck+Script');
+
 
 html {
     height: 100%;
     box-sizing: border-box;
 }
-*,
+* {
+    margin: 0;
+}
 *:before,
 *:after {
     box-sizing: inherit;
 }
 body {
+    height: 100%;
     position: relative;
     margin: auto;
-    padding-bottom: 6rem;
+    padding-bottom: 2em;
+    margin-bottom: 2em;
     min-height: 100%;
     direction: ltr;
+    overflow: auto;
+}
+.wrapper {
+    min-height: 100%;
+}
+
+.push {
+    height: 2em;
 }
 
 .footer {
-    position: absolute;
+    border-top: 1px solid black;
+    margin: auto;
     bottom: 0;
     width: 100%;
-    /* Set the fixed height of the footer here */
-    height: 30px;
-    background-color: #e7e7e7;
-    border-top: 1px solid black;
-    padding: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 2em;
 }
+
+
 
 
 // Login Page =============================
@@ -41,6 +56,39 @@ body {
         .pull-right {
             // border: 1px dotted blue;
             float: left !important;
+        }
+
+        .navbar {
+
+
+            button {
+                color: white;
+                background-color: #18bc9c;
+
+                .icon-bar {
+                    color: white;
+                    background-color: white;
+                }
+            }
+
+            h6 {
+                color: white;
+                padding: 0;
+                padding-left: 5px;
+                margin: 0;
+            }
+            // background-color: black;
+            background-color: #2c3e50;
+            border-radius: 0;
+            border-bottom: 1px solid black;
+
+            li {
+                // border: 1px dotted green;
+
+                a {
+                    // color: black;
+                }
+            }
         }
     }
 
@@ -60,11 +108,11 @@ body {
 
 
             .search {
-                background-color: #6699CC;
+                background-color: #18bc9c;
             }
 
             .partner {
-                background-color: #003366;
+                background-color: #2c3e50;
             }
 
 
@@ -118,6 +166,10 @@ body {
     }
 }
 
+//======================================================//
+//=======================Desktop =======================//
+//======================================================//
+
 @media only screen and (min-width: 768px) {
     header {
 
@@ -126,7 +178,17 @@ body {
         }
 
         .navbar {
-            background-color: #e7e7e7;
+            padding: 0;
+            margin: 0;
+
+            h6 {
+                color: white;
+                padding: 0;
+                padding-left: 5px;
+                margin: 0;
+            }
+            // background-color: black;
+            background-color: #2c3e50;
             border-radius: 0;
             border-bottom: 1px solid black;
 
@@ -143,6 +205,32 @@ body {
 
     .profile {
 
+        .repos {
+
+            input {
+                text-align: center;
+            }
+
+            li {
+                text-align: center;
+                background-color: lightgrey;
+                border-radius: 10px;
+                padding: 6px;
+                margin: 4px;
+
+                break-inside: avoid-column;
+
+                button {
+                    color: white;
+                    background-color: #2c3e50;
+                }
+            }
+
+            input {
+                background-color: transparent;
+            }
+        }
+
         .dashButtons {
             // border: 1px dotted black;
             color: white;
@@ -154,15 +242,15 @@ body {
 
 
             .search {
-                background-color: #6699CC;
+                background-color: #18bc9c;
             }
 
             .add {
-                background-color: #003366;
+                background-color: #2c3e50;
             }
 
             .partner {
-                background-color: #6699CC;
+                background-color: #18bc9c;
             }
 
 
@@ -180,6 +268,22 @@ body {
         ul {
             list-style: none;
         }
+
+        .oSource {
+            text-align: center;
+
+            table {
+                text-align: left;
+
+            }
+        }
+
+        .container {
+            column-count: 3;
+            column-width: 30%;
+
+        }
+
     }
 
     .login {
@@ -226,41 +330,91 @@ body {
         }
     }
 
-    .profile {
+    .community {
+        text-align: center;
 
-        .oSource {
-            text-align: center;
-
-            table {
-                text-align: left;
-
-            }
+        input {
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 5px;
+            width: 65%;
+            margin-bottom: 20px;
         }
 
-        .container {
-            column-count: 3;
+        table {
+            margin-left: auto;
+            margin-right: auto;
+            align-items: center;
+            text-align: left;
+            width: 85%;
+
         }
     }
 
+    .settings {
+        img {
+            width: 250px;
+            height: 250px;
+        }
+    }
 }
+
 
 
 // ================== Home ==================== //
 #about {
-    background-color: #003366;
+    background-color: #3498db;
     color: white;
     text-align: center;
     display: inline-block;
-    height: 400px;
+    height: 480px;
+    font-size: 18px;
     /*margin-left: 25px;*/
 }
 
 #howTo {
-    background-color: #6699CC;
+    background-color: #18bc9c;
     text-align: center;
     display: inline-block;
-    height: 400px;
+    height: 480px;
+    font-size: 18px;
+    color: white;
 }
 #tips {
     list-style-type: none;
 }
+#welcome {
+    background-color: #3498db;
+    color: white;
+    font-size: 50px;
+    height: 75px;
+}
+#logo {
+    font-family: 'Marck Script', cursive;
+    font-size: 60px;
+}
+// #dashboardUser {
+//     font-size: 25px;
+//     text-align: center;
+// }
+// #yourProjects {
+//     -moz-column-count: 2;
+//     -moz-column-gap: 5px;
+//     -webkit-column-count: 2;
+//     -webkit-column-gap: 5px;
+//     column-count: 2;
+//     column-gap: 5px;
+//
+//     h4 {
+//         text-align: center;
+//     }
+// }
+// #reposList {
+//     -moz-column-count: 3;
+//     -moz-column-gap: 5px;
+//     -webkit-column-count: 3;
+//     -webkit-column-gap: 5px;
+//     column-count: 3;
+//     column-gap: 5px;
+// }
+// }

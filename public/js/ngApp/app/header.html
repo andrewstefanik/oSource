@@ -1,11 +1,12 @@
 <header>
-    <nav ng-controller="NavbarController" class="navbar navbar-default">
+    <nav ng-controller="NavbarController" class="navbar">
         <div class="navbar-header">
             <button class="navbar-toggle pull-left" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+            <h6 class="navbar-brand brand-name"><span id="logo">oSource</span></h6>
         </div>
         <div class="navbar-collapse">
         <ul class="nav navbar-nav">
@@ -13,6 +14,9 @@
             <li ng-if="!isAuthenticated()"><a href="/login">Login</a></li>
             <li ng-if="isAuthenticated()"><a href="/dashboard">Dashboard</a></li>
             <li ng-if="isAuthenticated()"><a ui-sref="Search">Search Github</a></li>
+            <li ng-if="isAuthenticated()"><a href="/about">About</a></li>
+
+            <li ng-if="isAuthenticated()" class="onlyMobile"><a href="/settings">Settings</a></li>
             <li ng-if="isAuthenticated()" class="onlyMobile"><a href="/logout">Logout</a></li>
         </ul>
         <ul ng-if="isAuthenticated()" class="nav navbar-nav pull-right noMobile">

@@ -107,7 +107,22 @@ angular.module('oSource', ['ui.router', 'ngRoute', 'satellizer', 'ngResource', '
     .state('Contribute', {
         url: '/contribute',
         templateUrl: '/js/ngApp/submits/contribute.html',
-        controller: 'SubmitController as $ctrl',
+        controller: 'SubmitController',
+        data: {
+            loggedIn: true
+        }
+    })
+    .state('Community', {
+        url: '/community',
+        templateUrl: '/js/ngApp/community/community.html',
+        controller: 'CommunityController',
+        data: {
+            loggedIn: true
+        }
+    })
+    .state('About', {
+        url: '/about',
+        templateUrl: '/js/ngApp/about/about.html',
         data: {
             loggedIn: true
         }
