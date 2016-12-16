@@ -22,8 +22,9 @@
             <li ng-if="isAuthenticated()"><a href="/about">About</a></li>
             <li ng-if="isAuthenticated()"><a ui-sref="Contribute">Contribute</a></li>
 
-                <li ng-if="isAuthenticated()" class="onlyMobile"><a href="/settings">Settings</a></li>
-                <li ng-if="isAuthenticated()" class="onlyMobile"><a href="/logout">Logout</a></li>
+
+            <li ng-if="isAuthenticated()" class="onlyMobile"><a href="/settings">Settings</a></li>
+            <li ng-if="isAuthenticated()" class="onlyMobile"><a href="/logout">Logout</a></li>
             </ul>
             <ul ng-if="isAuthenticated()" class="nav navbar-nav pull-right noMobile">
                 <li class="header-nav-item dropdown">

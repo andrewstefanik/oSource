@@ -8,6 +8,8 @@ var request = require('request');
 var qs = require('querystring');
 var jwt = require('jwt-simple');
 var moment = require('moment');
+var nodemailer = require('nodemailer');
+var sgTransport = require('nodemailer-sendgrid-transport');
 var User = require('./models/user');
 var Form = require('./models/addForm');
 // Set up Database
@@ -378,6 +380,35 @@ app.post('/add', function (req, res) {
         res.redirect('/dashboard');
     });
 });
+
+/*
+====================  SENDGRID EMAIL =========================
+*/
+// var options = {
+//     auth: {
+//         api_key: 'SENDGRID_APIKEY'
+//     }
+// }
+
+// var mailer = nodemailer.createTransport(sgTransport(options));
+
+// var email = {
+//     to: ['joe@foo.com', 'mike@bar.com'],
+//     from: 'roger@tacos.com',
+//     subject: 'Hi there',
+//     text: 'Awesome sauce',
+//     html: '<b>Awesome sauce</b>'
+// };
+
+// mailer.sendMail(email, function(err, res) {
+//     if (err) { 
+//         console.log(err) 
+//     }
+//     console.log(res);
+// });
+/*
+===============================================================
+*/
 
 // ========================================================== //
 app.get('/*', function (req, res, next) {
