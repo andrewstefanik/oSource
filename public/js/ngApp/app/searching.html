@@ -15,9 +15,8 @@
                         </md-input-container>
                         <div>{{vm.message}}</div>
                     </form>
-                    <md-list ng-if="vm.repoMatch.length">
-
-                          <md-list-item ng-repeat="match in vm.repoMatch" class="md-3-line">
+                    <md-list>
+                          <md-list-item ng-hide="!vm.isSearching" ng-repeat="match in vm.repoMatch" class="md-3-line">
                               <div class="md-list-item-text">
                                   <a href ui-sref="detail({id: match.id})"><h3>Repo name: {{match.name}}</h3></a>
                                   <p><strong>Description</strong>: {{match.description}}</p>
@@ -28,7 +27,17 @@
                                   <p><strong>Owner</strong>: {{match.owner}}</p>
                               </div>
                           </md-list-item>
+                          <md-list-item ng-hide="vm.isSearching" ng-repeat="match in vm.repo" class="md-3-line">
+                              <div class="md-list-item-text">
+                                  <a href ui-sref="detail({id: match.id})"><h3>Repo name: {{match.name}}</h3></a>
+                                  <p><strong>Description</strong>: {{match.description}}</p>
 
+                                  <p><strong>Languages</strong>: {{match.language}}</p>
+
+                                  <p><strong>Skill Level</strong>: {{match.skill}}</p>
+                                  <p><strong>Owner</strong>: {{match.owner}}</p>
+                              </div>
+                          </md-list-item>
                     </md-list>
                 </md-content>
             </md-sidenav>

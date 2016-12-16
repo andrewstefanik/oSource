@@ -4,6 +4,7 @@ angular.module('oSource').controller('RepoSearchController', ['localStorageServi
     SearchService.allAdded;
     this.repo = [];
     this.searchTerm = '';
+    this.isSearching = false;
 
     osourceRepos.forEach((repo) => {
             this.repo.push({
@@ -18,9 +19,17 @@ angular.module('oSource').controller('RepoSearchController', ['localStorageServi
     });
 
     this.open = (() => {
+
+        if(!this.isSearching) {
+            this.repoMatch = this.repo;
+        }
         $mdSidenav('repoSearch').toggle();
+        this.repoMatch = this.repo;
+        console.log(this.repoMatch);
     });
+
     this.findMatches = (() => {
+        this.isSearching = true;
         console.log('finding matches......');
         this.repoMatch = compareCharacter(this.repo, this.searchTerm);
         this.message = `Showing ${this.repoMatch.length} of ${this.repo.length} items`;
