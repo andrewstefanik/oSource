@@ -1,31 +1,27 @@
-angular.module('oSource').controller('RepoSearchController', ['localStorageService', 'SearchService', '$mdSidenav', function(localStorageService, SearchService, $mdSidenav) {
-    var osourceRepos = localStorageService.get('allAdded').data;
+angular.module('oSource').controller('RepoSearchController', ['$mdSidenav', '$http', function($mdSidenav, $http) {
+    this.repo= [];
+    $http({
+        url: '/search/allRepos',
+        method: 'GET'
+    }).then(
+        (res) => {
+            console.dir(res.data);
+            res.data.map((val) => {
+                this.repo.push(val);
+                return this.repo;
+            })
+            this.message = `Showing ${this.repo.length} of ${this.repo.length} items`;
+        },
+        (err) => {
+            console.error(err);
+        }
+    )
     this.message = '';
-    SearchService.allAdded;
-    this.repo = [];
     this.searchTerm = '';
     this.isSearching = false;
 
-    osourceRepos.forEach((repo) => {
-            this.repo.push({
-                id: repo._id,
-                name: repo.repo_name,
-                description: repo.repo_description,
-                language: repo.languages,
-                skill: repo.skill_level,
-                owner: repo.repo_owner
-            });
-            return this.repo;
-    });
-
     this.open = (() => {
-
-        if(!this.isSearching) {
-            this.repoMatch = this.repo;
-        }
         $mdSidenav('repoSearch').toggle();
-        this.repoMatch = this.repo;
-        console.log(this.repoMatch);
     });
 
     this.findMatches = (() => {
@@ -38,7 +34,7 @@ angular.module('oSource').controller('RepoSearchController', ['localStorageServi
         var newArr = [];
         var singleWord = arrayToSearch.map((el, idx, arr) => {
             var len = charsToMatch.length;
-            var partWord = el.name.slice(0, len);
+            var partWord = el.repo_name.slice(0, len);
                 if(partWord == charsToMatch) {
                     newArr.push(el);
                 }
