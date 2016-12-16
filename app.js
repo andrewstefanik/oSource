@@ -8,8 +8,8 @@ var request = require('request');
 var qs = require('querystring');
 var jwt = require('jwt-simple');
 var moment = require('moment');
-var nodemailer = require('nodemailer');
-var sgTransport = require('nodemailer-sendgrid-transport');
+// var nodemailer = require('nodemailer');
+// var sgTransport = require('nodemailer-sendgrid-transport');
 var User = require('./models/user');
 var Form = require('./models/addForm');
 // Set up Database
@@ -401,8 +401,8 @@ app.post('/add', function (req, res) {
 // };
 
 // mailer.sendMail(email, function(err, res) {
-//     if (err) { 
-//         console.log(err) 
+//     if (err) {
+//         console.log(err)
 //     }
 //     console.log(res);
 // });

@@ -132,7 +132,7 @@ angular.module('oSource', ['ui.router', 'ngRoute', 'satellizer', 'ngResource', '
         url: '/about',
         templateUrl: '/js/ngApp/about/about.html',
         data: {
-            loggedIn: true
+            loggedIn: false
         }
     });
     $urlRouterProvider.otherwise('/');
