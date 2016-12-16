@@ -1,8 +1,19 @@
-
+<style>
+    .md-list-item-text {
+        margin-top: 10px;
+        border-top: 1px solid black;
+        border-radius: 10px;
+    }
+</style>
 <div ng-controller="RepoSearchController as vm" layout="column">
         <section layout="row" flex>
-            <md-sidenav md-component-id="repoSearch">
-                <md-content layout-padding layout="column" layout-align="center start" flex>
+            <md-sidenav md-component-id="repoSearch" flex>
+                    <md-toolbar layout="row" style="background-color: #18bc9c;">
+                        <div class="md-toolbar-tools">
+                            <span>Projects on oSource</span>
+                        </div>
+                    </md-toolbar>
+                <md-content layout="column" layout-align="start start" flex>
                     <form>
                         <md-input-container >
                            <label for="searchOsource">Search Projects</label>
@@ -10,27 +21,27 @@
                         </md-input-container>
                         <div>{{vm.message}}</div>
                     </form>
-                    <md-list>
-                          <md-list-item ng-hide="!vm.isSearching" ng-repeat="match in vm.repoMatch" class="md-3-line">
-                              <div class="md-list-item-text">
-                                  <a href ui-sref="detail({id: match.id})"><h3>Repo name: {{match.name}}</h3></a>
-                                  <p><strong>Description</strong>: {{match.description}}</p>
+                    <md-list flex>
+                          <md-list-item ng-hide="!vm.isSearching" ng-repeat="match in vm.repoMatch" class="md-3-line" flex style="margin-top: 1em; margin-bottom: 1em;">
+                              <div class="md-list-item-text" flex>
+                                  <a href ui-sref="detail({id: match._id})" style="color:#18bc9c;"><h3 style="color:#18bc9c;">{{match.repo_name}}</h3></a>
+                                  <p><strong>Description</strong>: {{match.repo_description}}</p>
 
-                                  <p><strong>Languages</strong>: {{match.language}}</p>
+                                  <p><strong>Languages</strong>: {{match.languages}}</p>
 
-                                  <p><strong>Skill Level</strong>: {{match.skill}}</p>
-                                  <p><strong>Owner</strong>: {{match.owner}}</p>
+                                  <p><strong>Skill Level</strong>: {{match.repo_skill}}</p>
+                                  <p><strong>Owner</strong>: {{match.repo_owner}}</p>
                               </div>
                           </md-list-item>
-                          <md-list-item ng-hide="vm.isSearching" ng-repeat="match in vm.repo" class="md-3-line">
+                          <md-list-item ng-hide="vm.isSearching" ng-repeat="match in vm.repo" class="md-3-line" flex>
                               <div class="md-list-item-text">
-                                  <a href ui-sref="detail({id: match.id})"><h3>Repo name: {{match.name}}</h3></a>
-                                  <p><strong>Description</strong>: {{match.description}}</p>
+                                  <a href ui-sref="detail({id: match._id})" style="color:#18bc9c;"><h3>{{match.repo_name}}</h3></a>
+                                  <p><strong>Description</strong>: {{match.repo_description}}</p>
 
-                                  <p><strong>Languages</strong>: {{match.language}}</p>
+                                  <p><strong>Languages</strong>: {{match.languages}}</p>
 
-                                  <p><strong>Skill Level</strong>: {{match.skill}}</p>
-                                  <p><strong>Owner</strong>: {{match.owner}}</p>
+                                  <p><strong>Skill Level</strong>: {{match.repo_skill}}</p>
+                                  <p><strong>Owner</strong>: {{match.repo_owner}}</p>
                               </div>
                           </md-list-item>
                     </md-list>
@@ -38,3 +49,5 @@
             </md-sidenav>
         </section>
 </div>
+<!-- team.osource@gmail.com
+pass: Codercamps2016 -->
