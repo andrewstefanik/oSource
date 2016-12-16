@@ -13,8 +13,7 @@
                 <h6 class="navbar-brand brand-name"><span id="logo">oSource</span></h6>
             </a>
         </div>
-<<<<<<< HEAD
-        <div class="navbar-collapse">
+        <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
             <li ng-if="!isAuthenticated()"><a href="/">Home</a></li>
             <li ng-if="!isAuthenticated()"><a href="/login">Login</a></li>
@@ -22,18 +21,10 @@
             <li ng-if="isAuthenticated()"><a ui-sref="Search">Search Github</a></li>
             <li ng-if="isAuthenticated()"><a href="/about">About</a></li>
             <li ng-if="isAuthenticated()"><a ui-sref="Contribute">Contribute</a></li>
-=======
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li ng-if="!isAuthenticated()"><a href="/">Home</a></li>
-                <li ng-if="!isAuthenticated()"><a href="/login">Login</a></li>
-                <li ng-if="isAuthenticated()"><a href="/dashboard">Dashboard</a></li>
-                <li ng-if="isAuthenticated()"><a ui-sref="Search">Search Github</a></li>
-                <li ng-if="isAuthenticated()"><a href="/about">About</a></li>
->>>>>>> c5109709bd8cd3283f61b0a4df66309dea6d9069
 
-                <li ng-if="isAuthenticated()" class="onlyMobile"><a href="/settings">Settings</a></li>
-                <li ng-if="isAuthenticated()" class="onlyMobile"><a href="/logout">Logout</a></li>
+
+            <li ng-if="isAuthenticated()" class="onlyMobile"><a href="/settings">Settings</a></li>
+            <li ng-if="isAuthenticated()" class="onlyMobile"><a href="/logout">Logout</a></li>
             </ul>
             <ul ng-if="isAuthenticated()" class="nav navbar-nav pull-right noMobile">
                 <li class="header-nav-item dropdown">
