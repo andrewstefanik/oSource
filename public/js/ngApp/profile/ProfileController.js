@@ -14,6 +14,8 @@ angular.module('oSource')
     	var userName = response.data.userName;
         localStorageService.set('username', userName);
         $scope.userName = userName;
+        //If data in our database then use it, else pull from github and save to our db for future use.
+        
         SearchService.user.get({user: userName}, function (res) {
             var data = JSON.parse (res.data);
             $scope.repoList = data;
