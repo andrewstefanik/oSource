@@ -33,7 +33,7 @@
     "angular-route": "^1.6.0"
   },
   "resolutions": {
-    "angular": "1.5.11"
-    
+    "angular": "1.6.0"
+
   }
 }
